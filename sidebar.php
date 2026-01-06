@@ -1,6 +1,8 @@
+
+
 <div id="sidebar">
     <div class="logo-area d-flex align-items-center justify-content-center">
-        <img src="/vms-frontend/img/logo.png" class="logo-img" alt="Logo" />
+        <img src="https://devedenspell.com/MD/image/logo.png" class="logo-img" alt="Logo" />
         <span class="vms-brand">CHAMPS VMA</span>
     </div>
 
