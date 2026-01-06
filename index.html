@@ -12,6 +12,7 @@
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
     />
+
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 
     <style>
@@ -19,7 +20,7 @@
 
       :root {
         --white: #fff;
-        --primary: #021436;
+        --primary: #0b3d91;
         --secondary: #ff7a59;
         --yellow: #ffd700;
         --sidebar-width: 260px;
@@ -169,8 +170,10 @@
       }
 
       .logo-area {
-        padding: 20px;
-        border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        padding: 6px;
+        border-bottom-width: 1px;
+        border-bottom-style: solid;
+        border-color: var(--secondary);
         gap: 10px; /* logo aur text ke beech space */
       }
 
@@ -191,7 +194,7 @@
       .nav-link {
         color: rgba(255, 255, 255, 0.7);
         padding: 12px;
-        margin: 5px 15px;
+        margin: 5px 10px;
         border-radius: 12px;
         display: flex;
         align-items: center;
@@ -201,7 +204,7 @@
 
       .nav-link:hover,
       .nav-link.active {
-        background: rgba(255, 255, 255, 0.15);
+        background: var(--secondary);
         color: white;
       }
       .nav-link i {
@@ -213,10 +216,13 @@
       #main-wrapper {
         margin-left: var(--sidebar-width);
         width: calc(100% - var(--sidebar-width));
+        min-height: 100vh; /* 👈 min height */
+        display: flex; /* footer push ke liye */
+        flex-direction: column;
       }
 
       .top-navbar {
-        background: rgba(255, 255, 255, 0.9);
+        background: var(--primary);
         backdrop-filter: blur(10px);
         padding: 15px 40px;
         display: flex;
@@ -230,7 +236,8 @@
 
       /* --- Cards & Components --- */
       .stat-card {
-        background: white;
+        background: var(--primary);
+        color: white;
         border-radius: 16px;
         padding: 20px;
         border: none;
@@ -251,15 +258,16 @@
       }
 
       .btn-logout {
-        background: var(--white);
-        color: var(--secondary);
+        background: var(--secondary);
+        color: var(--white);
         border-width: 1px;
         border-style: solid;
         border-color: var(--btn);
       }
 
       .action-card {
-        background: white;
+        background: var(--primary);
+        color: white;
         border-radius: 20px;
         padding: 35px 20px;
         text-align: center;
@@ -294,7 +302,8 @@
       }
 
       .vms-service-card {
-        background: #ffffff;
+        background: var(--primary);
+        color: white;
         border-radius: 20px;
         padding: 30px 20px;
         text-align: center;
@@ -344,14 +353,14 @@
 
       .vms-service-card h5 {
         font-weight: 700;
-        color: #1e293b;
+
         margin-bottom: 10px;
         font-size: 1.1rem;
       }
 
       .vms-service-card p {
         font-size: 0.85rem;
-        color: #64748b;
+        color: white;
         line-height: 1.5;
         margin: 0;
       }
@@ -429,6 +438,18 @@
         display: none;
       }
 
+      .footer-main {
+        background: var(--secondary);
+        color: white;
+        position: relative;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        z-index: 100;
+        padding: 10px 0;
+        margin-top: auto;
+      }
+
       /* Sidebar default for desktop (992px+) */
       @media (min-width: 992px) {
         #sidebar {
@@ -470,6 +491,10 @@
 
         .sidebar-overlay.show {
           display: block;
+        }
+
+        .logo-area {
+          padding: 9px;
         }
       }
     </style>
@@ -553,8 +578,9 @@
                 Don't have an account?
                 <a
                   href="#"
-                  class="text-primary fw-bold text-decoration-none"
+                  class="fw-bold text-decoration-none"
                   onclick="showSignUp()"
+                  style="color: var(--primary)"
                   >Sign Up</a
                 >
               </p>
@@ -679,7 +705,10 @@
               />
               <label class="form-check-label small text-muted" for="terms">
                 I agree to the
-                <a href="#" class="text-decoration-none text-primary"
+                <a
+                  href="#"
+                  class="text-decoration-none"
+                  style="color: var(--primary)"
                   >Terms of Service</a
                 >
               </label>
@@ -697,8 +726,9 @@
                 Already have an account?
                 <a
                   href="#"
-                  class="text-primary fw-bold text-decoration-none"
+                  class="fw-bold text-decoration-none"
                   onclick="showLogin()"
+                  style="color: var(--primary)"
                   >Log In</a
                 >
               </p>
@@ -753,8 +783,9 @@
             <div class="text-center mt-4">
               <a
                 href="#"
-                class="text-primary fw-bold text-decoration-none small"
+                class="fw-bold text-decoration-none small"
                 onclick="showLogin()"
+                style="color: var(--primary)"
               >
                 <i class="fas fa-arrow-left me-1"></i> Back to Login
               </a>
@@ -773,37 +804,49 @@
           <span class="vms-brand">CHAMPS VMA</span>
         </div>
 
-        <nav class="nav-menu">
+        <nav class="nav flex-column nav-menu">
           <a
             href="#"
             class="nav-link active"
-            onclick="showView('dashboard-view', 'Dashboard')"
-            ><i class="fas fa-chart-pie"></i> Dashboard</a
+            onclick="setActive(this); showView('dashboard-view','Dashboard')"
           >
-          <a
-            href="#"
-            class="nav-link"
-            onclick="showView('vehicle-mgmt-view', 'Vehicle Management')"
-            ><i class="fas fa-truck-pickup"></i> Vehicle Management</a
-          >
-          <a
-            href="#"
-            class="nav-link"
-            onclick="showView('incident-mgmt-view', 'Incident & Intervention')"
-          >
-            <i class="fas fa-exclamation-circle"></i> Incident & Intervention
+            <i class="fas fa-chart-pie me-2"></i> Dashboard
           </a>
-          <a href="#" class="nav-link"
-            ><i class="fas fa-satellite"></i> Vehicle Tracking</a
+
+          <a
+            href="#"
+            class="nav-link"
+            onclick="setActive(this); showView('vehicle-mgmt-view','Vehicle Management')"
           >
-          <a href="#" class="nav-link"
-            ><i class="fas fa-list-check"></i> Asset Enumeration</a
+            <i class="fas fa-truck-pickup me-2"></i> Vehicle Management
+          </a>
+
+          <a
+            href="#"
+            class="nav-link"
+            onclick="setActive(this); showView('incident-mgmt-view','Incident & Intervention')"
           >
+            <i class="fas fa-exclamation-circle me-2"></i> Incident &
+            Intervention
+          </a>
+
+          <a href="#" class="nav-link" onclick="setActive(this)">
+            <i class="fas fa-satellite me-2"></i> Vehicle Tracking
+          </a>
+
+          <a href="#" class="nav-link" onclick="setActive(this)">
+            <i class="fas fa-list-check me-2"></i> Asset Enumeration
+          </a>
+
+          <!-- ✅ New Reports Menu -->
+          <a href="#" class="nav-link" onclick="setActive(this)">
+            <i class="fas fa-file-lines me-2"></i> Reports & Analytics
+          </a>
         </nav>
       </div>
       <!-- main-content -->
-      <div id="main-wrapper">
-        <header class="top-navbar border-bottom border-1">
+      <div id="main-wrapper" class="">
+        <header class="top-navbar">
           <div class="d-flex align-items-center">
             <button
               class="btn btn-link d-lg-none me-2"
@@ -818,7 +861,7 @@
 
           <div class="d-flex align-items-center">
             <button
-              class="btn secondary-hover btn-sm rounded-pill px-3"
+              class="btn secondary-color btn-sm rounded-pill px-3"
               onclick="handleLogout()"
             >
               <i class="fas fa-sign-out-alt me-1"></i> Logout
@@ -829,7 +872,7 @@
         <div class="p-4 p-md-5">
           <div id="dashboard-view" class="fade-in">
             <div class="row g-4 mb-5">
-              <div class="col-xl-3 col-md-6">
+              <div class="col-xl-4 col-md-6">
                 <div
                   class="action-card"
                   onclick="showView('vehicle-mgmt-view', 'Vehicle Management')"
@@ -840,12 +883,12 @@
                     <i class="fas fa-bus-alt"></i>
                   </div>
                   <h5 class="fw-bold">Vehicle Management</h5>
-                  <p class="small text-muted">
+                  <p class="small text-white">
                     Manage fleet, drivers & history
                   </p>
                 </div>
               </div>
-              <div class="col-xl-3 col-md-6">
+              <div class="col-xl-4 col-md-6">
                 <div
                   class="action-card"
                   onclick="showView('incident-mgmt-view', 'Incident & Intervention')"
@@ -856,10 +899,10 @@
                     <i class="fas fa-tools"></i>
                   </div>
                   <h5 class="fw-bold">Incident & Int.</h5>
-                  <p class="small text-muted">Repairs & reports</p>
+                  <p class="small text-white">Repairs & reports</p>
                 </div>
               </div>
-              <div class="col-xl-3 col-md-6">
+              <div class="col-xl-4 col-md-6">
                 <div class="action-card">
                   <div
                     class="icon-box bg-warning-subtle text-warning mx-auto mb-3"
@@ -867,16 +910,27 @@
                     <i class="fas fa-location-dot"></i>
                   </div>
                   <h5 class="fw-bold">Tracking</h5>
-                  <p class="small text-muted">Real-time GPS status</p>
+                  <p class="small text-white">Real-time GPS status</p>
                 </div>
               </div>
-              <div class="col-xl-3 col-md-6">
+              <div class="col-xl-4 col-md-6">
                 <div class="action-card">
                   <div class="icon-box bg-info-subtle text-info mx-auto mb-3">
                     <i class="fas fa-boxes-stacked"></i>
                   </div>
                   <h5 class="fw-bold">Asset Enum.</h5>
-                  <p class="small text-muted">Stock & inventory</p>
+                  <p class="small text-white">Stock & inventory</p>
+                </div>
+              </div>
+              <div class="col-xl-4 col-md-6">
+                <div class="action-card">
+                  <div
+                    class="icon-box bg-success-subtle text-success mx-auto mb-3"
+                  >
+                    <i class="fas fa-chart-line"></i>
+                  </div>
+                  <h5 class="fw-bold">Reports & Analytics</h5>
+                  <p class="small text-white">Data insights & performance</p>
                 </div>
               </div>
             </div>
@@ -906,7 +960,7 @@
                   <div class="icon-wrapper bg-blue-light">
                     <i class="fas fa-info-circle fa-lg"></i>
                   </div>
-                  <h5>Check Vehicle Details</h5>
+                  <h5>Vehicle Details</h5>
                   <p>Detailed vehicle information and history logs</p>
                 </div>
               </div>
@@ -919,7 +973,7 @@
                   <div class="icon-wrapper bg-green-light">
                     <i class="fas fa-user-tie fa-lg"></i>
                   </div>
-                  <h5>Check Driver Details</h5>
+                  <h5>Driver Details</h5>
                   <p>Driver profiles, licenses and route assignments</p>
                 </div>
               </div>
@@ -932,7 +986,7 @@
                   <div class="icon-wrapper bg-yellow-light">
                     <i class="fas fa-route fa-lg"></i>
                   </div>
-                  <h5>Route & Destination</h5>
+                  <h5>Trip & Route</h5>
                   <p>Plan and track delivery routes and history</p>
                 </div>
               </div>
@@ -945,7 +999,7 @@
                   <div class="icon-wrapper bg-orange-light">
                     <i class="fas fa-file-invoice-dollar fa-lg"></i>
                   </div>
-                  <h5>Check Waybill Details</h5>
+                  <h5>Waybill & Tracking</h5>
                   <p>Shipment documentation and billing records</p>
                 </div>
               </div>
@@ -958,7 +1012,7 @@
                   <div class="icon-wrapper bg-blue-light">
                     <i class="fas fa-clock-rotate-left fa-lg"></i>
                   </div>
-                  <h5>Check Service History</h5>
+                  <h5>Service / Maintenance</h5>
                   <p>Maintenance logs and service schedules</p>
                 </div>
               </div>
@@ -1068,182 +1122,207 @@
 
           <!-- vehicle detail -->
           <div id="check-vehicle-view" class="hidden fade-in">
-            <div
-              class="d-md-flex justify-content-between align-items-center mb-4"
-            >
-              <div class="d-flex align-items-center">
+            <div id="vehicle-table-view">
+              <div
+                class="d-md-flex justify-content-between align-items-center mb-4"
+              >
+                <div class="d-flex align-items-center">
+                  <button
+                    class="btn secondary-hover rounded-circle me-3"
+                    onclick="showView('vehicle-mgmt-view', 'Dashboard Overview')"
+                    style="
+                      width: 40px;
+                      height: 40px;
+                      display: flex;
+                      align-items: center;
+                      justify-content: center;
+                    "
+                  >
+                    <i class="fas fa-arrow-left"></i>
+                  </button>
+
+                  <h3 class="fw-bold mb-0">Vehicle Details</h3>
+                </div>
+
+                <button
+                  class="btn secondary-color rounded-pill px-4 mt-md-0 mt-3"
+                  data-bs-toggle="modal"
+                  data-bs-target="#addVehicleModal"
+                >
+                  + Add New Vehicle
+                </button>
+              </div>
+
+              <div class="row g-3 mb-4">
+                <div class="col-md-3">
+                  <div class="stat-card shadow-sm">
+                    <div class="icon-box bg-primary text-white">
+                      <i class="fas fa-truck"></i>
+                    </div>
+                    <div>
+                      <h4 class="fw-bold m-0">142</h4>
+                      <small class="">Total Vehicles</small>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-md-3">
+                  <div class="stat-card shadow-sm">
+                    <div
+                      class="icon-box bg-purple text-white"
+                      style="background: #8e44ad"
+                    >
+                      <i class="fas fa-road"></i>
+                    </div>
+                    <div>
+                      <h4 class="fw-bold m-0">24</h4>
+                      <small class="">Active Vehicles</small>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-md-3">
+                  <div class="stat-card shadow-sm">
+                    <div class="icon-box bg-success text-white">
+                      <i class="fas fa-user"></i>
+                    </div>
+                    <div>
+                      <h4 class="fw-bold m-0">89</h4>
+                      <small class="">Active Drivers</small>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-md-3">
+                  <div class="stat-card shadow-sm">
+                    <div class="icon-box bg-danger text-white">
+                      <i class="fas fa-wrench"></i>
+                    </div>
+                    <div>
+                      <h4 class="fw-bold m-0">8</h4>
+                      <small class="">In Maintenance</small>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="bg-white rounded-4 p-4 shadow-sm mt-3">
+                <h5 class="fw-bold mb-3">Vehicle Log Table</h5>
+                <div class="table-responsive">
+                  <table class="table table-hover align-middle">
+                    <thead class="table-light">
+                      <tr>
+                        <th>Date</th>
+                        <th>Driver</th>
+                        <th>Vehicle Make</th>
+                        <th>Vehicle Model</th>
+                        <th>Origin</th>
+                        <th>Destination</th>
+                        <th>Registration</th>
+                        <th>Status</th>
+                        <th>Action</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <td>2025-12-22</td>
+                        <td>Zaid Ali</td>
+                        <td>Volkswagen</td>
+                        <td>Voyage</td>
+                        <td>Enugu</td>
+                        <td>Festac Town</td>
+                        <td>123456</td>
+                        <td><span class="badge bg-success">Active</span></td>
+                        <td>
+                          <button
+                            class="btn btn-sm btn-light border"
+                            onclick="toggleVehicleDetail(true)"
+                          >
+                            <i class="fas fa-eye"></i>
+                          </button>
+                        </td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+            </div>
+
+            <div id="vehicle-detail-view" class="d-none fade-in">
+              <div class="d-flex align-items-center mb-4">
                 <button
                   class="btn secondary-hover rounded-circle me-3"
-                  onclick="showView('vehicle-mgmt-view', 'Dashboard Overview')"
+                  onclick="toggleVehicleDetail(false)"
                   style="
                     width: 40px;
                     height: 40px;
                     display: flex;
                     align-items: center;
                     justify-content: center;
+                    border: 1px solid #ddd;
                   "
                 >
                   <i class="fas fa-arrow-left"></i>
                 </button>
-
-                <h3 class="fw-bold mb-0">Check Vehicle Details</h3>
+                <h3 class="fw-bold mb-0">Vehicle Details</h3>
               </div>
 
-              <button
-                class="btn secondary-color rounded-pill px-4 mt-md-0 mt-3"
-                data-bs-toggle="modal"
-                data-bs-target="#addVehicleModal"
-              >
-                + Add New Vehicle
-              </button>
+              <div class="bg-white p-4 rounded-4 shadow-sm border">
+                <div class="container-fluid bg-white p-0">
+                <div class="d-flex detail-row">
+                    <div class="detail-label">Fleet No:</div>
+                    <div>VH-789</div>
+                </div>
+                <div class="d-flex detail-row">
+                    <div class="detail-label">Make/Model:</div>
+                    <div>Volkswagen Voyage</div>
+                </div>
+                <div class="d-flex detail-row">
+                    <div class="detail-label">Registration:</div>
+                    <div>KA-01-AB-1234</div>
+                </div>
+                <div class="d-flex detail-row">
+                    <div class="detail-label">Vehicle Type:</div>
+                    <div>Truck</div>
+                </div>
+                <div class="d-flex detail-row">
+                    <div class="detail-label">Status (Serviceable or Unserviceable):</div>
+                    <div><span class="status-badge">Active</span></div>
+                </div>
+                <div class="d-flex detail-row">
+                    <div class="detail-label">Assigned Driver:</div>
+                    <div>John Doe (DRV-001)</div>
+                </div>
+                <div class="d-flex detail-row">
+                    <div class="detail-label">Last Service Date:</div>
+                    <div>15 Jan 2024</div>
+                </div>
+                <div class="d-flex detail-row">
+                    <div class="detail-label">Next Service Due:</div>
+                    <div>15 Mar 2024</div>
+                </div>
+                <div class="d-flex detail-row">
+                    <div class="detail-label">Base / Site: </div>
+                    <div>Enugu Depot</div>
+                </div>
+                <!-- <div class="d-flex detail-row">
+                    <div class="detail-label">Fuel Level:</div>
+                    <div>85%</div>
+                </div> -->
+                <!-- <div class="d-flex detail-row">
+                    <div class="detail-label">Mileage:</div>
+                    <div>85,250 km</div>
+                </div> -->
+                <div class="d-flex detail-row">
+                    <div class="detail-label">Client/Vehicle Owner:</div>
+                    <div>Rahul Sharma</div>
+                </div>
             </div>
-
-            <div class="row g-3 mb-4">
-              <div class="col-md-3">
-                <div class="stat-card shadow-sm">
-                  <div class="icon-box bg-primary text-white">
-                    <i class="fas fa-truck"></i>
-                  </div>
-                  <div>
-                    <h4 class="fw-bold m-0">142</h4>
-                    <small class="text-muted">Total Vehicles</small>
-                  </div>
-                </div>
-              </div>
-              <div class="col-md-3">
-                <div class="stat-card shadow-sm">
-                  <div
-                    class="icon-box bg-purple text-white"
-                    style="background: #8e44ad"
-                  >
-                    <i class="fas fa-road"></i>
-                  </div>
-                  <div>
-                    <h4 class="fw-bold m-0">24</h4>
-                    <small class="text-muted">Active Vehicles</small>
-                  </div>
-                </div>
-              </div>
-              <div class="col-md-3">
-                <div class="stat-card shadow-sm">
-                  <div class="icon-box bg-success text-white">
-                    <i class="fas fa-user"></i>
-                  </div>
-                  <div>
-                    <h4 class="fw-bold m-0">89</h4>
-                    <small class="text-muted">Active Drivers</small>
-                  </div>
-                </div>
-              </div>
-              <div class="col-md-3">
-                <div class="stat-card shadow-sm">
-                  <div class="icon-box bg-danger text-white">
-                    <i class="fas fa-wrench"></i>
-                  </div>
-                  <div>
-                    <h4 class="fw-bold m-0">8</h4>
-                    <small class="text-muted">In Maintenance</small>
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            <div class="bg-white p-4 rounded-4 shadow-sm border">
-              <h6 class="text-muted mb-3">Select Vehicle</h6>
-              <select class="form-select mb-4 fw-bold border-2">
-                <option>VH-789 - Volkswagen Voyage</option>
-              </select>
-
-              <div class="container-fluid bg-white p-0">
-                <div class="d-flex detail-row">
-                  <div class="detail-label">Vehicle ID:</div>
-                  <div>VH-789</div>
-                </div>
-                <div class="d-flex detail-row">
-                  <div class="detail-label">Make/Model:</div>
-                  <div>Volkswagen Voyage</div>
-                </div>
-                <div class="d-flex detail-row">
-                  <div class="detail-label">Registration:</div>
-                  <div>KA-01-AB-1234</div>
-                </div>
-                <div class="d-flex detail-row">
-                  <div class="detail-label">Vehicle Type:</div>
-                  <div>Truck</div>
-                </div>
-                <div class="d-flex detail-row">
-                  <div class="detail-label">Current Status:</div>
-                  <div><span class="status-badge">Active</span></div>
-                </div>
-                <div class="d-flex detail-row">
-                  <div class="detail-label">Assigned Driver:</div>
-                  <div>John Doe (DRV-001)</div>
-                </div>
-                <div class="d-flex detail-row">
-                  <div class="detail-label">Last Service Date:</div>
-                  <div>15 Jan 2024</div>
-                </div>
-                <div class="d-flex detail-row">
-                  <div class="detail-label">Next Service Due:</div>
-                  <div>15 Mar 2024</div>
-                </div>
-                <div class="d-flex detail-row">
-                  <div class="detail-label">Current Location:</div>
-                  <div>Enugu Depot</div>
-                </div>
-                <div class="d-flex detail-row">
-                  <div class="detail-label">Fuel Level:</div>
-                  <div>85%</div>
-                </div>
-                <div class="d-flex detail-row">
-                  <div class="detail-label">Mileage:</div>
-                  <div>85,250 km</div>
-                </div>
-              </div>
-            </div>
-
-            <div class="bg-white rounded-4 p-4 shadow-sm mt-3">
-              <h5 class="fw-bold mb-3">Vehicle Log Table</h5>
-              <div class="table-responsive">
-                <table class="table table-hover align-middle">
-                  <thead class="table-light">
-                    <tr>
-                      <th>Date</th>
-                      <th>Driver</th>
-                      <th>Vehicle Make</th>
-                      <th>Vehicle Model</th>
-                      <th>Origin</th>
-                      <th>Destination</th>
-                      <th>Registration</th>
-                      <th>Status</th>
-                      <th>Action</th>
-                    </tr>
-                  </thead>
-                  <tbody>
-                    <tr>
-                      <td>2025-12-22</td>
-                      <td>Zaid Ali</td>
-                      <td>Volkswagen</td>
-                      <td>Voyage</td>
-                      <td>Enugu</td>
-                      <td>Festac Town</td>
-                      <td>123456</td>
-                      <td><span class="badge bg-success">Active</span></td>
-                      <td>
-                        <button class="btn btn-sm btn-light border">
-                          <i class="fas fa-eye"></i>
-                        </button>
-                      </td>
-                    </tr>
-                  </tbody>
-                </table>
               </div>
             </div>
           </div>
 
           <!-- driver detail -->
           <div id="check-driver-view" class="hidden fade-in">
-            <div
+            <div id="driver-table-view">
+              <div
               class="d-md-flex justify-content-between align-items-center mb-4"
             >
               <div class="d-flex align-items-center">
@@ -1261,8 +1340,16 @@
                   <i class="fas fa-arrow-left"></i>
                 </button>
 
-                <h3 class="fw-bold">Check Driver Details</h3>
+                <h3 class="fw-bold">Driver Details</h3>
               </div>
+
+             <div>
+               <button
+                class="btn secondary-hover rounded-pill px-4 mt-md-0 mt-3"
+                 onclick="showView('driver-mate-view', 'Driver Mate Details')"
+              >
+                Driver Mate Detail
+              </button>
 
               <button
                 class="btn secondary-color rounded-pill px-4 mt-md-0 mt-3"
@@ -1271,6 +1358,7 @@
               >
                 + Add New Driver
               </button>
+             </div>
             </div>
 
             <div class="row g-3 mb-4">
@@ -1281,18 +1369,18 @@
                   </div>
                   <div>
                     <h4 class="fw-bold m-0">89</h4>
-                    <small class="text-muted">Total Drivers</small>
+                    <small class="">Total Drivers</small>
                   </div>
                 </div>
               </div>
               <div class="col-md-3">
                 <div class="stat-card shadow-sm">
                   <div class="icon-box bg-primary text-white">
-                    <i class="fas fa-steering-wheel"></i>
+                    <i class="fas fa-car"></i>
                   </div>
                   <div>
                     <h4 class="fw-bold m-0">65</h4>
-                    <small class="text-muted">On Duty</small>
+                    <small class="">On Duty</small>
                   </div>
                 </div>
               </div>
@@ -1303,7 +1391,7 @@
                   </div>
                   <div>
                     <h4 class="fw-bold m-0">4.8</h4>
-                    <small class="text-muted">Avg Rating</small>
+                    <small class="">Avg Rating</small>
                   </div>
                 </div>
               </div>
@@ -1314,19 +1402,79 @@
                   </div>
                   <div>
                     <h4 class="fw-bold m-0">12</h4>
-                    <small class="text-muted">Off Duty</small>
+                    <small class="">Off Duty</small>
                   </div>
                 </div>
               </div>
             </div>
 
-            <div class="bg-white p-4 rounded-4 shadow-sm border mb-4">
-              <h6 class="text-muted mb-3">Select Driver</h6>
-              <select class="form-select mb-4 fw-bold border-2">
-                <option>DRV-001 - John Doe</option>
-                <option>DRV-002 - Zaid Ali</option>
-              </select>
+             <div class="bg-white rounded-4 p-4 shadow-sm">
+              <h5 class="fw-bold mb-3">Recent Trips & Performance</h5>
+              <div class="table-responsive">
+                <table class="table table-hover align-middle">
+                  <thead class="table-light">
+                    <tr>
+                      <th>Date</th>
+                      <th>Trip ID</th>
+                      <th>Vehicle</th>
+                      <th>Route</th>
+                      <th>Status</th>
+                      <th>Rating</th>
+                      <th>Action</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td>2025-12-20</td>
+                      <td>#TRP-502</td>
+                      <td>VH-789</td>
+                      <td>Karachi → Hyderabad</td>
+                      <td><span class="badge bg-success">Completed</span></td>
+                      <td><i class="fas fa-star text-warning"></i> 5.0</td>
+                      <td>
+                            <button class="btn btn-sm btn-light border" onclick="toggleDriverDetail(true)">
+                                <i class="fas fa-eye"></i>
+                            </button>
+                        </td>
+                    </tr>
+                    <tr>
+                      <td>2025-12-18</td>
+                      <td>#TRP-488</td>
+                      <td>VH-789</td>
+                      <td>Karachi → Sukkur</td>
+                      <td><span class="badge bg-success">Completed</span></td>
+                      <td><i class="fas fa-star text-warning"></i> 4.5</td>
+                      <td>
+                            <button class="btn btn-sm btn-light border" onclick="toggleDriverDetail(true)">
+                                <i class="fas fa-eye"></i>
+                            </button>
+                        </td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+            </div>
 
+            <div id="driver-detail-view" class="d-none fade-in">
+              <div class="d-flex align-items-center mb-4">
+                <button
+                  class="btn secondary-hover rounded-circle me-3"
+                  onclick="toggleDriverDetail(false)"
+                  style="
+                    width: 40px;
+                    height: 40px;
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    border: 1px solid #ddd;
+                  "
+                >
+                  <i class="fas fa-arrow-left"></i>
+                </button>
+                <h3 class="fw-bold mb-0">Driver Details</h3>
+              </div>
+              <div class="bg-white p-4 rounded-4 shadow-sm border mb-4">
               <div class="row">
                 <div class="col-md-2 text-center mb-3">
                   <div
@@ -1345,82 +1493,321 @@
                 <div class="col-md-10">
                   <div class="container-fluid p-0">
                     <div class="d-flex detail-row">
-                      <div class="detail-label">Driver ID:</div>
-                      <div>DRV-001</div>
-                    </div>
-                    <div class="d-flex detail-row">
                       <div class="detail-label">Full Name:</div>
                       <div>John Doe</div>
                     </div>
+
                     <div class="d-flex detail-row">
-                      <div class="detail-label">License Number:</div>
-                      <div>DL-987654321</div>
+                      <div class="detail-label">Address:</div>
+                      <div>Plot 45, Street 10, Karachi</div>
                     </div>
+
                     <div class="d-flex detail-row">
-                      <div class="detail-label">Contact:</div>
+                      <div class="detail-label">Phone Number:</div>
                       <div>+92 300 1234567</div>
                     </div>
+
                     <div class="d-flex detail-row">
-                      <div class="detail-label">Experience:</div>
-                      <div>5 Years</div>
+                      <div class="detail-label">Date Employed:</div>
+                      <div>01-Jan-2022</div>
                     </div>
+
                     <div class="d-flex detail-row">
-                      <div class="detail-label">Assigned Vehicle:</div>
-                      <div>VH-789 (Volkswagen Voyage)</div>
+                      <div class="detail-label">Date of Birth:</div>
+                      <div>15-May-1990</div>
                     </div>
+
                     <div class="d-flex detail-row">
-                      <div class="detail-label">Blood Group:</div>
-                      <div>B+ Positive</div>
+                      <div class="detail-label">Driver's License Number:</div>
+                      <div>DL-987654321</div>
                     </div>
+
                     <div class="d-flex detail-row">
-                      <div class="detail-label">Home Address:</div>
-                      <div>Plot 45, Street 10, Karachi</div>
+                      <div class="detail-label">Emergency Contact Name:</div>
+                      <div>Jane Doe</div>
+                    </div>
+
+                    <div class="d-flex detail-row">
+                      <div class="detail-label">
+                        Emergency Contact Phone Number:
+                      </div>
+                      <div>+92 321 7654321</div>
+                    </div>
+
+                    <div class="d-flex detail-row">
+                      <div class="detail-label">
+                        Assigned Vehicle / Plate Number:
+                      </div>
+                      <div>VH-789 (ABC-123)</div>
+                    </div>
+
+                    <div class="d-flex detail-row">
+                      <div class="detail-label">License Category / Class:</div>
+                      <div>HTV / LTV</div>
+                    </div>
+
+                    <div class="d-flex detail-row">
+                      <div class="detail-label">License Expiry Date:</div>
+                      <div>12-Dec-2028</div>
+                    </div>
+
+                    <div class="d-flex detail-row">
+                      <div class="detail-label">
+                        National ID / Passport Number:
+                      </div>
+                      <div>42101-1234567-1</div>
                     </div>
                   </div>
                 </div>
               </div>
             </div>
+            </div>
 
-            <div class="bg-white rounded-4 p-4 shadow-sm">
-              <h5 class="fw-bold mb-3">Recent Trips & Performance</h5>
-              <div class="table-responsive">
-                <table class="table table-hover align-middle">
-                  <thead class="table-light">
-                    <tr>
-                      <th>Date</th>
-                      <th>Trip ID</th>
-                      <th>Vehicle</th>
-                      <th>Route</th>
-                      <th>Status</th>
-                      <th>Rating</th>
-                    </tr>
-                  </thead>
-                  <tbody>
-                    <tr>
-                      <td>2025-12-20</td>
-                      <td>#TRP-502</td>
-                      <td>VH-789</td>
-                      <td>Karachi → Hyderabad</td>
-                      <td><span class="badge bg-success">Completed</span></td>
-                      <td><i class="fas fa-star text-warning"></i> 5.0</td>
-                    </tr>
-                    <tr>
-                      <td>2025-12-18</td>
-                      <td>#TRP-488</td>
-                      <td>VH-789</td>
-                      <td>Karachi → Sukkur</td>
-                      <td><span class="badge bg-success">Completed</span></td>
-                      <td><i class="fas fa-star text-warning"></i> 4.5</td>
-                    </tr>
-                  </tbody>
-                </table>
+           
+          </div>
+
+          <!-- driver mate detail -->
+          <div id="driver-mate-view" class="hidden fade-in">
+            <div id="driver-mate-table-view">
+              <div
+              class="d-md-flex justify-content-between align-items-center mb-4"
+            >
+              <div class="d-flex align-items-center">
+                <button
+                  class="btn secondary-hover rounded-circle me-3"
+                  onclick="showView('check-driver-view', 'Dashboard Overview')"
+                  style="
+                    width: 40px;
+                    height: 40px;
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                  "
+                >
+                  <i class="fas fa-arrow-left"></i>
+                </button>
+
+                <h3 class="fw-bold">Driver Mate Details</h3>
               </div>
+
+            
+              
+
+              <button
+                class="btn secondary-color rounded-pill px-4 mt-md-0 mt-3"
+                data-bs-toggle="modal"
+                data-bs-target="#addDriverModal"
+              >
+                + Add New Driver Mate
+              </button>
+             
+            </div>
+
+            <div class="row g-3 mb-4">
+  <div class="col-md-3">
+    <div class="stat-card shadow-sm">
+      <div class="icon-box bg-success text-white">
+        <i class="fas fa-hands-helping"></i>
+      </div>
+      <div>
+        <h4 class="fw-bold m-0" id="total-mates">85</h4>
+        <small class="">Total Mates</small>
+      </div>
+    </div>
+  </div>
+
+  <div class="col-md-3">
+    <div class="stat-card shadow-sm">
+      <div class="icon-box bg-primary text-white">
+        <i class="fas fa-truck-loading"></i>
+      </div>
+      <div>
+        <h4 class="fw-bold m-0" id="active-mates">60</h4>
+        <small class="">On Trip</small>
+      </div>
+    </div>
+  </div>
+
+  <div class="col-md-3">
+    <div class="stat-card shadow-sm">
+      <div class="icon-box bg-warning text-dark">
+        <i class="fas fa-user-check"></i>
+      </div>
+      <div>
+        <h4 class="fw-bold m-0" id="mate-rating">4.5</h4>
+        <small class="">Performance</small>
+      </div>
+    </div>
+  </div>
+
+  <div class="col-md-3">
+    <div class="stat-card shadow-sm">
+      <div class="icon-box bg-danger text-white">
+        <i class="fas fa-user-slash"></i>
+      </div>
+      <div>
+        <h4 class="fw-bold m-0" id="off-duty-mates">25</h4>
+        <small class="">Available</small>
+      </div>
+    </div>
+  </div>
+</div>
+
+             <div class="bg-white rounded-4 p-4 shadow-sm border mt-3">
+  <h5 class="fw-bold mb-3">Motor Mate: Recent Trips & Performance</h5>
+  <div class="table-responsive">
+    <table class="table table-hover align-middle">
+      <thead class="table-light">
+        <tr>
+          <th>Date</th>
+          <th>Trip ID</th>
+          <th>Assigned Driver</th> <th>Vehicle</th>
+          <th>Route</th>
+          <th>Status</th>
+          <th>Action</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>2025-12-20</td>
+          <td>#TRP-502</td>
+          <td>John Doe</td>
+          <td>VH-789</td>
+          <td>Karachi → Hyderabad</td>
+          <td><span class="badge bg-success">Completed</span></td>
+          <td>
+            <button class="btn btn-sm btn-light border" onclick="toggleDriverMateDetail(true)">
+              <i class="fas fa-eye"></i>
+            </button>
+          </td>
+        </tr>
+        <tr>
+          <td>2025-12-18</td>
+          <td>#TRP-488</td>
+          <td>John Doe</td>
+          <td>VH-789</td>
+          <td>Karachi → Sukkur</td>
+          <td><span class="badge bg-success">Completed</span></td>
+          <td>
+            <button class="btn btn-sm btn-light border" onclick="toggleDriverMateDetail(true)">
+              <i class="fas fa-eye"></i>
+            </button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+            </div>
+
+            <div id="driver-mate-detail-view" class="d-none fade-in">
+              <div class="d-flex align-items-center mb-4">
+                <button
+                  class="btn secondary-hover rounded-circle me-3"
+                  onclick="toggleDriverMateDetail(false)"
+                  style="
+                    width: 40px;
+                    height: 40px;
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    border: 1px solid #ddd;
+                  "
+                >
+                  <i class="fas fa-arrow-left"></i>
+                </button>
+                <h3 class="fw-bold mb-0">Driver Mate Details</h3>
+              </div>
+  
+
+  <div class="bg-white p-4 rounded-4 shadow-sm border mb-4">
+    <div class="row">
+       <div class="col-md-2 text-center mb-3">
+                  <div
+                    class="rounded-circle bg-light d-flex align-items-center justify-content-center mx-auto shadow-sm"
+                    style="
+                      width: 120px;
+                      height: 120px;
+                      border: 3px solid var(--navy);
+                    "
+                  >
+                    <i class="fas fa-user-tie fa-4x text-muted"></i>
+                  </div>
+                  <span class="badge bg-success mt-2">Verified</span>
+                </div>
+
+      <div class="col-md-10 px-4">
+        
+        
+        <div class="container-fluid p-0">
+          <div class="d-flex detail-row">
+            <div class="detail-label">Full Name:</div>
+            <div class="fw-bold">Ali Raza</div>
+          </div>
+          <div class="d-flex detail-row">
+            <div class="detail-label">Address:</div>
+            <div>Flat B-402, North Karachi</div>
+          </div>
+           <div class="d-flex detail-row">
+            <div class="detail-label">Phone Number:</div>
+            <div class="fw-bold text-success">+92 345 1234567</div>
+          </div>
+           <div class="d-flex detail-row">
+            <div class="detail-label">Date Employed:</div>
+            <div>10-Jan-2023</div>
+          </div>
+         
+          <div class="d-flex detail-row">
+            <div class="detail-label">Date of Birth:</div>
+            <div>15-Aug-1995</div>
+          </div>
+
+           <div class="d-flex detail-row">
+            <div class="detail-label">Driver License Number (where applicable):</div>
+            <div class="fw-bold">ML-KAR-9988</div>
+          </div>
+
+          <div class="d-flex detail-row">
+            <div class="detail-label">Emergency Contact Name:</div>
+            <div>Kamran Raza</div>
+          </div>
+          <div class="d-flex detail-row">
+            <div class="detail-label">Emergency Contact Phone Number:</div>
+            <div>+92 300 9988776</div>
+          </div>
+
+           <div class="d-flex detail-row">
+            <div class="detail-label">Assigned / Approved Vehicle / Plate Number:</div>
+            <div class="fw-bold">VH-789 (ABC-123)</div>
+          </div>
+
+           <div class="d-flex detail-row">
+            <div class="detail-label">License Category / Class:</div>
+            <div>LTV / Helper</div>
+          </div>
+          <div class="d-flex detail-row">
+            <div class="detail-label">License Expiry Date:</div>
+            <div class="text-danger">25-Dec-2028</div>
+          </div>
+          
+           <div class="d-flex detail-row">
+            <div class="detail-label">National ID / Passport:</div>
+            <div>42101-9876543-1</div>
+          </div>
+
+          
+         
+        </div>
+      </div>
+    </div>
+  </div>
             </div>
           </div>
 
           <!-- route and destination -->
           <div id="route-mgmt-view" class="hidden fade-in">
-            <div
+            <div id="route-table-view">
+              <div
               class="d-md-flex justify-content-between align-items-center mb-4"
             >
               <div class="d-flex align-items-center">
@@ -1438,7 +1825,7 @@
                   <i class="fas fa-arrow-left"></i>
                 </button>
 
-                <h3 class="fw-bold">Route & Destination</h3>
+                <h3 class="fw-bold">Trip & Route</h3>
               </div>
 
               <button
@@ -1458,7 +1845,7 @@
                   </div>
                   <div>
                     <h4 class="fw-bold m-0">12</h4>
-                    <small class="text-muted">Active Routes</small>
+                    <small class="">Active Routes</small>
                   </div>
                 </div>
               </div>
@@ -1469,7 +1856,7 @@
                   </div>
                   <div>
                     <h4 class="fw-bold m-0">45</h4>
-                    <small class="text-muted">Completed Today</small>
+                    <small class="">Completed Today</small>
                   </div>
                 </div>
               </div>
@@ -1480,7 +1867,7 @@
                   </div>
                   <div>
                     <h4 class="fw-bold m-0">3</h4>
-                    <small class="text-muted">Delayed</small>
+                    <small class="">Delayed</small>
                   </div>
                 </div>
               </div>
@@ -1491,74 +1878,13 @@
                   </div>
                   <div>
                     <h4 class="fw-bold m-0">1</h4>
-                    <small class="text-muted">Blocked Route</small>
+                    <small class="">Blocked Route</small>
                   </div>
                 </div>
               </div>
             </div>
 
-            <div class="bg-white p-4 rounded-4 shadow-sm border mb-4">
-              <h6 class="text-muted mb-3">Select Active Trip</h6>
-              <select class="form-select mb-4 fw-bold border-2">
-                <option>TRP-1092 - Karachi to Lahore (In Transit)</option>
-                <option>TRP-1093 - Islamabad to Peshawar (Pending)</option>
-              </select>
-
-              <div class="row align-items-center">
-                <div class="col-md-12">
-                  <div class="container-fluid p-0">
-                    <div class="d-flex detail-row">
-                      <div class="detail-label">Route ID:</div>
-                      <div id="detail-route-id">RT-PK-99</div>
-                    </div>
-                    <div class="d-flex detail-row">
-                      <div class="detail-label">Company Name:</div>
-                      <div id="detail-company-name">ABC Logistics</div>
-                    </div>
-                    <div class="d-flex detail-row">
-                      <div class="detail-label">Driver:</div>
-                      <div id="detail-driver">Zaid Ali</div>
-                    </div>
-                    <div class="d-flex detail-row">
-                      <div class="detail-label">Vehicle Registration:</div>
-                      <div id="detail-vehicle">VH-789</div>
-                    </div>
-                    <div class="d-flex detail-row">
-                      <div class="detail-label">Destination:</div>
-                      <div id="detail-destination" class="fw-bold text-danger">
-                        Thokar Niaz Baig, Lahore
-                      </div>
-                    </div>
-                    <div class="d-flex detail-row">
-                      <div class="detail-label">Goods Transported:</div>
-                      <div id="detail-goods">Electronics</div>
-                    </div>
-                    <div class="d-flex detail-row">
-                      <div class="detail-label">Load Details:</div>
-                      <div id="detail-load">500 kg</div>
-                    </div>
-                    <div class="d-flex detail-row">
-                      <div class="detail-label">Departure Time:</div>
-                      <div id="detail-departure-time">06:00 AM</div>
-                    </div>
-                    <div class="d-flex detail-row">
-                      <div class="detail-label">Weather:</div>
-                      <div id="detail-weather">Sunny</div>
-                    </div>
-                    <div class="d-flex detail-row">
-                      <div class="detail-label">Road Conditions:</div>
-                      <div id="detail-road">Smooth</div>
-                    </div>
-                    <div class="d-flex detail-row">
-                      <div class="detail-label">Additional Notes:</div>
-                      <div id="detail-notes">No issues reported</div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            <div class="bg-white rounded-4 p-4 shadow-sm">
+             <div class="bg-white rounded-4 p-4 shadow-sm">
               <div
                 class="d-flex justify-content-between align-items-center mb-3"
               >
@@ -1585,6 +1911,7 @@
                       <th>Status</th>
                       <th>Arrival Time</th>
                       <th>Notes</th>
+                      <th>Action</th>
                     </tr>
                   </thead>
                   <tbody id="trip-table-body">
@@ -1603,6 +1930,11 @@
                       <td><span class="badge bg-success">Arrived</span></td>
                       <td>21 Dec, 10:30 PM</td>
                       <td>No issues</td>
+                      <td>
+                            <button class="btn btn-sm btn-light border" onclick="toggleRouteDetail(true)">
+                                <i class="fas fa-eye"></i>
+                            </button>
+                        </td>
                     </tr>
                     <tr>
                       <td>#TRP-1081</td>
@@ -1621,16 +1953,176 @@
                       </td>
                       <td>--</td>
                       <td>Traffic on motorway</td>
+                      <td>
+                            <button class="btn btn-sm btn-light border" onclick="toggleRouteDetail(true)">
+                                <i class="fas fa-eye"></i>
+                            </button>
+                        </td>
                     </tr>
                   </tbody>
                 </table>
               </div>
             </div>
+            </div>
+
+           <div id="route-detail-view" class="d-none fade-in">
+            <div class="d-flex align-items-center mb-4">
+                <button
+                  class="btn secondary-hover rounded-circle me-3"
+                  onclick="toggleRouteDetail(false)"
+                  style="
+                    width: 40px;
+                    height: 40px;
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    border: 1px solid #ddd;
+                  "
+                >
+                  <i class="fas fa-arrow-left"></i>
+                </button>
+                <h3 class="fw-bold mb-0">Trip & Route</h3>
+              </div>
+             <div class="bg-white p-4 rounded-4 shadow-sm border mb-4">
+              
+
+              <div class="row align-items-center">
+                <div class="col-md-12">
+                  <div class="container-fluid p-0">
+                    <div class="d-flex detail-row">
+                      <div class="detail-label">Route ID:</div>
+                      <div id="detail-route-id">RT-PK-99</div>
+                    </div>
+                    <div class="d-flex detail-row">
+                      <div class="detail-label">Date of Trip:</div>
+                      <div id="detail-trip-date">05-Jan-2026</div>
+                    </div>
+                    <div class="d-flex detail-row">
+                      <div class="detail-label">Route:</div>
+                      <div id="detail-route">Main Highway Section A</div>
+                    </div>
+
+                    <!-- <div class="d-flex detail-row">
+                      <div class="detail-label">Company Name:</div>
+                      <div id="detail-company-name">ABC Logistics</div>
+                    </div> -->
+                    <div class="d-flex detail-row">
+                      <div class="detail-label">Driver Name:</div>
+                      <div id="detail-driver">Zaid Ali</div>
+                    </div>
+                    <div class="d-flex detail-row">
+                      <div class="detail-label">Driver Number:</div>
+                      <div id="detail-driver-number">+92 300 1112233</div>
+                    </div>
+                    <div class="d-flex detail-row align-items-center">
+                      <div class="detail-label">Driver Photograph:</div>
+                      <div id="detail-driver-photo">
+                        <img
+                          src="path_to_driver_image.jpg"
+                          alt="Driver"
+                          class="img-thumbnail"
+                          style="width: 100px; height: 100px; object-fit: cover"
+                        />
+                      </div>
+                    </div>
+                    <div class="d-flex detail-row">
+                      <div class="detail-label">Driver License:</div>
+                      <div id="detail-driver-license">DL-XYZ-786</div>
+                    </div>
+
+                    <div class="d-flex detail-row">
+                      <div class="detail-label">Motor Mate Name:</div>
+                      <div id="detail-mate-name">Aslam Khan</div>
+                    </div>
+                    <div class="d-flex detail-row">
+                      <div class="detail-label">Motor Mate Phone Number:</div>
+                      <div id="detail-mate-phone">+92 321 4455667</div>
+                    </div>
+                    <div class="d-flex detail-row align-items-center">
+                      <div class="detail-label">Motor Mate Photograph:</div>
+                      <div id="detail-mate-photo">
+                        <img
+                          src="path_to_mate_image.jpg"
+                          alt="Motor Mate"
+                          class="img-thumbnail"
+                          style="width: 100px; height: 100px; object-fit: cover"
+                        />
+                      </div>
+                    </div>
+                    <div class="d-flex detail-row">
+                      <div class="detail-label">Motor Mate License:</div>
+                      <div id="detail-mate-license">ML-ABC-123</div>
+                    </div>
+
+                    <div class="d-flex detail-row">
+                      <div class="detail-label">
+                        Vehicle Registration Number:
+                      </div>
+                      <div id="detail-vehicle">VH-789</div>
+                    </div>
+                    <div class="d-flex detail-row">
+                      <div class="detail-label">Port/Point of Departure:</div>
+                      <div id="detail-departure-port">Port Qasim, Karachi</div>
+                    </div>
+                    <div class="d-flex detail-row">
+                      <div class="detail-label">Current Location:</div>
+                      <div id="detail-current-location">Hyderabad Junction</div>
+                    </div>
+                    <div class="d-flex detail-row">
+                      <div class="detail-label">Final Destination:</div>
+                      <div id="detail-destination" class="fw-bold text-danger">
+                        Thokar Niaz Baig, Lahore
+                      </div>
+                    </div>
+
+                    <div class="d-flex detail-row">
+                      <div class="detail-label">Goods Transported:</div>
+                      <div id="detail-goods">Electronics</div>
+                    </div>
+                    <div class="d-flex detail-row">
+                      <div class="detail-label">Load or Content Details:</div>
+                      <div id="detail-load">500 kg</div>
+                    </div>
+                    <div class="d-flex detail-row">
+                      <div class="detail-label">Departure Time:</div>
+                      <div id="detail-departure-time">06:00 AM</div>
+                    </div>
+                    <div class="d-flex detail-row">
+                      <div class="detail-label">Weather Conditions:</div>
+                      <div id="detail-weather">Sunny</div>
+                    </div>
+                    <div class="d-flex detail-row">
+                      <div class="detail-label">Road Conditions:</div>
+                      <div id="detail-road">Smooth</div>
+                    </div>
+                    <div class="d-flex detail-row">
+                      <div class="detail-label">
+                        Waybill No (where applicable):
+                      </div>
+                      <div id="detail-waybill">WB-12345678</div>
+                    </div>
+
+                    <div class="d-flex detail-row">
+                      <div class="detail-label">
+                        Expected date of arrival at destination:
+                      </div>
+                      <div id="detail-expected-arrival" class="fw-bold">
+                        07-Jan-2026
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+           </div>
+
+           
           </div>
 
           <!-- service history -->
           <div id="service-history-view" class="hidden fade-in">
-            <div
+            <div id="service-table-view">
+              <div
               class="d-md-flex justify-content-between align-items-center mb-4"
             >
               <div class="d-flex align-items-center">
@@ -1647,7 +2139,7 @@
                 >
                   <i class="fas fa-arrow-left"></i>
                 </button>
-                <h3 class="fw-bold m-0">Service History</h3>
+                <h3 class="fw-bold m-0">Service / Maintenance</h3>
               </div>
 
               <button
@@ -1667,7 +2159,7 @@
                   </div>
                   <div>
                     <h4 class="fw-bold m-0">08</h4>
-                    <small class="text-muted">Due Soon</small>
+                    <small class="">Due Soon</small>
                   </div>
                 </div>
               </div>
@@ -1678,7 +2170,7 @@
                   </div>
                   <div>
                     <h4 class="fw-bold m-0">$4.2k</h4>
-                    <small class="text-muted">Monthly Cost</small>
+                    <small class="">Monthly Cost</small>
                   </div>
                 </div>
               </div>
@@ -1689,7 +2181,7 @@
                   </div>
                   <div>
                     <h4 class="fw-bold m-0">15</h4>
-                    <small class="text-muted">Completed</small>
+                    <small class="">Completed</small>
                   </div>
                 </div>
               </div>
@@ -1700,113 +2192,7 @@
                   </div>
                   <div>
                     <h4 class="fw-bold m-0">02</h4>
-                    <small class="text-muted">In Workshop</small>
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            <div class="bg-white p-4 rounded-4 shadow-sm border mb-4">
-              <div
-                class="d-flex justify-content-between align-items-center mb-4"
-              >
-                <div>
-                  <h6 class="text-muted mb-1">Filter by Vehicle</h6>
-                  <select
-                    class="form-select fw-bold border-2"
-                    style="min-width: 250px"
-                  >
-                    <option>VH-789 - Volkswagen Voyage</option>
-                    <option>VH-456 - Hino Truck</option>
-                  </select>
-                </div>
-                <div class="text-end">
-                  <span
-                    class="badge bg-success-subtle text-success border border-success px-3 py-2 rounded-pill"
-                    >Service Completed: YES</span
-                  >
-                </div>
-              </div>
-
-              <div class="row g-4">
-                <div class="col-12">
-                  <h6 class="fw-bold text-primary mb-3">
-                    <i class="fas fa-file-contract me-2"></i>Service & Contract
-                  </h6>
-                  <div class="small">
-                    <p class="mb-1 text-muted">Service Provider / Workshop</p>
-                    <p class="fw-bold mb-3">AutoMaster Central Hub</p>
-
-                    <p class="mb-1 text-muted">Contract / Agreement #</p>
-                    <p class="fw-bold mb-3 text-navy">CNT-2025-99812</p>
-
-                    <div class="row">
-                      <div class="col-6">
-                        <p class="mb-1 text-muted small">Start Date</p>
-                        <p class="fw-bold small">01 Jan 2025</p>
-                      </div>
-                      <div class="col-6">
-                        <p class="mb-1 text-muted small">End Date</p>
-                        <p class="fw-bold small">31 Dec 2025</p>
-                      </div>
-                    </div>
-                  </div>
-                  <hr />
-                </div>
-
-                <div class="col-12">
-                  <h6 class="fw-bold text-warning mb-3">
-                    <i class="fas fa-tools me-2"></i>Wear & Tear Status
-                  </h6>
-                  <div class="list-group list-group-flush small">
-                    <div class="d-flex justify-content-between py-1">
-                      <span>Tyre Condition:</span>
-                      <span class="fw-bold text-success">Above Limit</span>
-                    </div>
-                    <div class="d-flex justify-content-between py-1">
-                      <span>Exhaust System:</span>
-                      <span class="fw-bold text-warning">Nearing Limit</span>
-                    </div>
-                    <div class="d-flex justify-content-between py-1">
-                      <span>Brake Pads:</span>
-                      <span class="fw-bold text-success">Above Limit</span>
-                    </div>
-                  </div>
-
-                  <div class="mt-3 p-2 bg-light rounded small">
-                    <strong>Service Details:</strong> Full inspection done,
-                    brake fluid topped up.
-                  </div>
-                  <hr />
-                </div>
-
-                <div class="col-12">
-                  <h6 class="fw-bold text-danger mb-3">
-                    <i class="fas fa-shield-alt me-2"></i>Safety-Critical
-                  </h6>
-                  <div class="list-group list-group-flush small">
-                    <div class="d-flex justify-content-between py-1">
-                      <span>Steering System:</span>
-                      <span class="badge bg-success">Passed</span>
-                    </div>
-                    <div class="d-flex justify-content-between py-1">
-                      <span>Brake System:</span>
-                      <span class="badge bg-success">Passed</span>
-                    </div>
-                    <div class="d-flex justify-content-between py-1">
-                      <span>Lighting System:</span>
-                      <span class="badge bg-warning text-dark">Check Soon</span>
-                    </div>
-                  </div>
-
-                  <div class="mt-3">
-                    <p class="mb-1 text-muted small">Provider Signature</p>
-                    <p
-                      class="fst-italic fw-bold border-bottom"
-                      style="font-family: 'Cursive', sans-serif"
-                    >
-                      John Smith
-                    </p>
+                    <small class="">In Workshop</small>
                   </div>
                 </div>
               </div>
@@ -1887,22 +2273,12 @@
                         <span class="badge bg-success">Completed</span>
                       </td>
 
-                      <td>
-                        <div class="btn-group">
-                          <button
-                            class="btn btn-sm btn-light border"
-                            title="View Details"
-                          >
-                            <i class="fas fa-eye text-primary"></i>
-                          </button>
-                          <button
-                            class="btn btn-sm btn-light border"
-                            title="Download Report"
-                          >
-                            <i class="fas fa-file-pdf text-danger"></i>
-                          </button>
-                        </div>
-                      </td>
+                       <td>
+                            <button class="btn btn-sm btn-light border" onclick="toggleServiceDetail(true)">
+                                <i class="fas fa-eye"></i>
+                            </button>
+                        </td>
+                      
                     </tr>
 
                     <tr>
@@ -1943,25 +2319,133 @@
                         <span class="badge bg-success">Completed</span>
                       </td>
                       <td>
-                        <div class="btn-group">
-                          <button class="btn btn-sm btn-light border">
-                            <i class="fas fa-eye text-primary"></i>
-                          </button>
-                          <button class="btn btn-sm btn-light border">
-                            <i class="fas fa-file-pdf text-danger"></i>
-                          </button>
-                        </div>
-                      </td>
+                            <button class="btn btn-sm btn-light border" onclick="toggleServiceDetail(true)">
+                                <i class="fas fa-eye"></i>
+                            </button>
+                        </td>
                     </tr>
                   </tbody>
                 </table>
               </div>
             </div>
+            </div>
+
+            <div id="service-detail-view" class="d-none fade-in">
+              <div class="d-flex align-items-center mb-4">
+                <button
+                  class="btn secondary-hover rounded-circle me-3"
+                  onclick="toggleServiceDetail(false)"
+                  style="
+                    width: 40px;
+                    height: 40px;
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    border: 1px solid #ddd;
+                  "
+                >
+                  <i class="fas fa-arrow-left"></i>
+                </button>
+                <h3 class="fw-bold mb-0">Service / Maintenance</h3>
+              </div>
+              <div class="bg-white p-4 rounded-4 shadow-sm border mb-4">
+              <div class="row ">
+                <div class="col-12">
+                  <div class="d-flex detail-row">
+                    <div class="detail-label">Date of Service:</div>
+                    <div id="service-date">05-Jan-2026</div>
+                  </div>
+
+                  <div class="d-flex detail-row">
+                    <div class="detail-label">Description of Work Done:</div>
+                    <div id="work-description">
+                      Oil change, brake inspection, and filter replacement.
+                    </div>
+                  </div>
+
+                  <div class="d-flex detail-row">
+                    <div class="detail-label">Vehicle Plate Number:</div>
+                    <div id="vehicle-plate">VH-789 (ABC-123)</div>
+                  </div>
+
+                  <div class="d-flex detail-row">
+                    <div class="detail-label">Odometer Reading / Mileage:</div>
+                    <div id="odometer-reading">85,250 km</div>
+                  </div>
+
+                  <div class="d-flex detail-row">
+                    <div class="detail-label">Parts Replaced:</div>
+                    <div id="parts-replaced">Oil Filter, Brake Pads</div>
+                  </div>
+
+                  <div class="d-flex detail-row">
+                    <div class="detail-label">
+                      Service Provider / Mechanic Name:
+                    </div>
+                    <div id="mechanic-name">City Auto Workshop</div>
+                  </div>
+
+                  <div class="d-flex detail-row">
+                    <div class="detail-label">Service Record Number:</div>
+                    <div id="service-record-no">SR-99821</div>
+                  </div>
+
+                  <div class="d-flex detail-row">
+                    <div class="detail-label">
+                      Type of Service (Routine / Repair / Breakdown):
+                    </div>
+                    <div id="service-type">Repair</div>
+                  </div>
+
+                  <div class="d-flex detail-row">
+                    <div class="detail-label">
+                      Next Service Due (Date or Mileage):
+                    </div>
+                    <div id="next-service-due">95,000 km or 05-July-2026</div>
+                  </div>
+
+                  <div class="d-flex detail-row">
+                    <div class="detail-label">Date of Service:</div>
+                    <div id="service-date">05-Jan-2026</div>
+                  </div>
+
+                  <div class="d-flex detail-row">
+                    <div class="detail-label">Description of Work Done:</div>
+                    <div id="work-description">
+                      Oil change, brake inspection, and filter replacement.
+                    </div>
+                  </div>
+
+                  <div class="d-flex detail-row">
+                    <div class="detail-label">Accident History:</div>
+                    <div id="accident-history">
+                      <span class="badge bg-warning text-dark">Minor Bump</span>
+                      <p class="mb-0 mt-1 small text-muted">
+                        Damage sustained severity: Low - Left headlight
+                        replaced.
+                      </p>
+                    </div>
+                  </div>
+
+                  <div class="d-flex detail-row">
+                    <div class="detail-label">
+                      Remark on Physical Inspection:
+                    </div>
+                    <div id="physical-inspection" class="fst-italic">
+                      Body work clean, tire pressure optimal.
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            </div>
           </div>
 
           <!-- waybill detail -->
           <div id="waybill-details-view" class="hidden fade-in">
-            <div
+            <div id="waybill-table-view">
+              <div
               class="d-md-flex justify-content-between align-items-center mb-4"
             >
               <div class="d-flex align-items-center">
@@ -1979,7 +2463,7 @@
                   <i class="fas fa-arrow-left"></i>
                 </button>
 
-                <h3 class="fw-bold">Waybill Detail</h3>
+                <h3 class="fw-bold">Waybill & Tracking</h3>
               </div>
 
               <div class="d-flex gap-2">
@@ -2004,7 +2488,7 @@
                   </div>
                   <div>
                     <h4 class="fw-bold m-0">124</h4>
-                    <small class="text-muted">Total Waybills</small>
+                    <small class="">Total Waybills</small>
                   </div>
                 </div>
               </div>
@@ -2015,7 +2499,7 @@
                   </div>
                   <div>
                     <h4 class="fw-bold m-0">18</h4>
-                    <small class="text-muted">In Transit</small>
+                    <small class="">In Transit</small>
                   </div>
                 </div>
               </div>
@@ -2026,7 +2510,7 @@
                   </div>
                   <div>
                     <h4 class="fw-bold m-0">85%</h4>
-                    <small class="text-muted">Paid Status</small>
+                    <small class="">Paid Status</small>
                   </div>
                 </div>
               </div>
@@ -2037,77 +2521,13 @@
                   </div>
                   <div>
                     <h4 class="fw-bold m-0">2.5k</h4>
-                    <small class="text-muted">Units Delivered</small>
+                    <small class="">Units Delivered</small>
                   </div>
                 </div>
               </div>
             </div>
 
-            <div class="bg-white p-4 rounded-4 shadow-sm border mb-4">
-              <div class="row mb-4">
-                <div class="col-md-8">
-                  <h6 class="text-muted mb-2">Search Waybill Number</h6>
-                  <div class="input-group">
-                    <input
-                      type="text"
-                      class="form-control fw-bold border-2"
-                      placeholder="Enter Waybill ID (e.g. WB-5520)"
-                    />
-                    <button class="btn secondary-color px-4">Find</button>
-                  </div>
-                </div>
-                <div class="col-md-4 text-end">
-                  <span
-                    class="badge p-2 px-3"
-                    style="background: #e8f5e9; color: #2e7d32; font-size: 1rem"
-                    >Status: Delivered</span
-                  >
-                </div>
-              </div>
-
-              <div class="row pt-4">
-                <div class="col-md-6">
-                  <h6 class="fw-bold text-primary mb-3">Consignment Info</h6>
-                  <div class="d-flex detail-row">
-                    <div class="detail-label">Waybill ID:</div>
-                    <div class="fw-bold">WB-5520</div>
-                  </div>
-                  <div class="d-flex detail-row">
-                    <div class="detail-label">Client Name:</div>
-                    <div>Global Logistics Inc.</div>
-                  </div>
-                  <div class="d-flex detail-row">
-                    <div class="detail-label">Goods Type:</div>
-                    <div>Electronics / Solar Panels</div>
-                  </div>
-                  <div class="d-flex detail-row">
-                    <div class="detail-label">Total Weight:</div>
-                    <div>4,500 KG</div>
-                  </div>
-                </div>
-                <div class="col-md-6 ps-md-4">
-                  <h6 class="fw-bold text-primary mb-3">Shipment & Payment</h6>
-                  <div class="d-flex detail-row">
-                    <div class="detail-label">Vehicle ID:</div>
-                    <div>VH-789</div>
-                  </div>
-                  <div class="d-flex detail-row">
-                    <div class="detail-label">Departure:</div>
-                    <div>20 Dec 2025</div>
-                  </div>
-                  <div class="d-flex detail-row">
-                    <div class="detail-label">Payment Mode:</div>
-                    <div>Bank Transfer</div>
-                  </div>
-                  <div class="d-flex detail-row">
-                    <div class="detail-label">Amount:</div>
-                    <div class="fw-bold text-success">$1,450.00</div>
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            <div class="bg-white rounded-4 p-4 shadow-sm">
+             <div class="bg-white rounded-4 p-4 shadow-sm">
               <h5 class="fw-bold mb-3">Recent Waybill Logs</h5>
               <div class="table-responsive">
                 <table class="table table-hover align-middle">
@@ -2128,11 +2548,11 @@
                       <td>Lahore</td>
                       <td>Global Logis.</td>
                       <td><span class="badge bg-success">Paid</span></td>
-                      <td>
-                        <button class="btn btn-sm btn-light border">
-                          <i class="fas fa-eye"></i>
-                        </button>
-                      </td>
+                       <td>
+                            <button class="btn btn-sm btn-light border" onclick="toggleWaybillDetail(true)">
+                                <i class="fas fa-eye"></i>
+                            </button>
+                        </td>
                     </tr>
                     <tr>
                       <td>#WB-5521</td>
@@ -2143,20 +2563,130 @@
                         <span class="badge bg-warning text-dark">Pending</span>
                       </td>
                       <td>
-                        <button class="btn btn-sm btn-light border">
-                          <i class="fas fa-eye"></i>
-                        </button>
-                      </td>
+                            <button class="btn btn-sm btn-light border" onclick="toggleWaybillDetail(true)">
+                                <i class="fas fa-eye"></i>
+                            </button>
+                        </td>
                     </tr>
                   </tbody>
                 </table>
               </div>
             </div>
+            </div>
+
+
+            <div id="waybill-detail-view" class="d-none fade-in">
+              <div class="d-flex align-items-center mb-4">
+                <button
+                  class="btn secondary-hover rounded-circle me-3"
+                  onclick="toggleWaybillDetail(false)"
+                  style="
+                    width: 40px;
+                    height: 40px;
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    border: 1px solid #ddd;
+                  "
+                >
+                  <i class="fas fa-arrow-left"></i>
+                </button>
+                <h3 class="fw-bold mb-0">Waybill & Tracking</h3>
+              </div>
+              <div class="bg-white p-4 rounded-4 shadow-sm border mb-4">
+              <div class="row pt-4">
+                <div class="col-12">
+                  <div class="d-flex detail-row">
+                    <div class="detail-label">Waybill Number:</div>
+                    <div class="fw-bold" id="waybill-no">WB-5520</div>
+                  </div>
+
+                  <div class="d-flex detail-row">
+                    <div class="detail-label">Date:</div>
+                    <div id="date">20 Dec 2025</div>
+                  </div>
+
+                  <div class="d-flex detail-row">
+                    <div class="detail-label">Sender Name:</div>
+                    <div id="sender-name">Global Logistics Inc.</div>
+                  </div>
+
+                  <div class="d-flex detail-row">
+                    <div class="detail-label">Receiver Name:</div>
+                    <div id="receiver-name">Green Energy Corp</div>
+                  </div>
+
+                  <div class="d-flex detail-row">
+                    <div class="detail-label">Pickup Location:</div>
+                    <div id="pickup-location">Port Qasim, Karachi</div>
+                  </div>
+
+                  <div class="d-flex detail-row">
+                    <div class="detail-label">Delivery Location:</div>
+                    <div id="delivery-location">Industrial Area, Lahore</div>
+                  </div>
+
+                  <div class="d-flex detail-row">
+                    <div class="detail-label">Description of Goods:</div>
+                    <div id="goods-desc">Electronics / Solar Panels</div>
+                  </div>
+
+                  <div class="d-flex detail-row">
+                    <div class="detail-label">Quantity:</div>
+                    <div id="total-quantity">45 Units / 4,500 KG</div>
+                  </div>
+
+                  <div class="d-flex detail-row">
+                    <div class="detail-label">Vehicle Plate Number:</div>
+                    <div id="vehicle-plate">VH-789 (ABC-123)</div>
+                  </div>
+
+                  <div class="d-flex detail-row">
+                    <div class="detail-label">Driver Name:</div>
+                    <div id="driver-name">Ahmed Khan</div>
+                  </div>
+
+                  <div class="d-flex detail-row">
+                    <div class="detail-label">Motor Mate Name:</div>
+                    <div id="motor-mate-name">Ali Raza</div>
+                  </div>
+
+                  <div class="d-flex detail-row">
+                    <div class="detail-label">Date Dispatched:</div>
+                    <div id="date-dispatched">20 Dec 2025</div>
+                  </div>
+
+                  <div class="d-flex detail-row text-secondary">
+                    <div class="detail-label">Last Checkpoint:</div>
+                    <div id="last-checkpoint">Hyderabad Toll Plaza</div>
+                  </div>
+
+                  <div class="d-flex detail-row fw-bold text-success">
+                    <div class="detail-label">Current Checkpoint:</div>
+                    <div id="current-checkpoint">Moro Service Area</div>
+                  </div>
+
+                  <div class="d-flex detail-row text-primary">
+                    <div class="detail-label">Next Checkpoint:</div>
+                    <div id="next-checkpoint">Sukkur Interchange</div>
+                  </div>
+
+                  <div class="d-flex detail-row">
+                    <div class="detail-label">Remarks/Observations:</div>
+                    <div id="remarks" class="fst-italic text-muted">
+                      Vehicle running on schedule.
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            </div>  
           </div>
 
           <!-- impoundment -->
           <div id="impoundment-detail-view" class="hidden fade-in">
-            <div
+            <div id="impound-table-view">
+              <div
               class="d-md-flex justify-content-between align-items-center mb-4"
             >
               <div class="d-flex align-items-center">
@@ -2192,7 +2722,7 @@
                   </div>
                   <div>
                     <h4 class="fw-bold m-0">14</h4>
-                    <small class="text-muted">Current Impounds</small>
+                    <small class="">Current Impounds</small>
                   </div>
                 </div>
               </div>
@@ -2203,7 +2733,7 @@
                   </div>
                   <div>
                     <h4 class="fw-bold m-0">05</h4>
-                    <small class="text-muted">Pending Tickets</small>
+                    <small class="">Pending Tickets</small>
                   </div>
                 </div>
               </div>
@@ -2214,73 +2744,13 @@
                   </div>
                   <div>
                     <h4 class="fw-bold m-0">28</h4>
-                    <small class="text-muted">Released This Month</small>
+                    <small class="">Released This Month</small>
                   </div>
                 </div>
               </div>
             </div>
 
-            <div class="bg-white p-4 rounded-4 shadow-sm border mb-4">
-              <h6 class="text-muted mb-3">Select Vehicle</h6>
-              <select class="form-select mb-4 fw-bold border-2">
-                <option>VH-789 - Volkswagen Voyage</option>
-              </select>
-              <div class="row">
-                <div class="col-md-12">
-                  <div class="container-fluid p-0">
-                    <div class="d-flex detail-row">
-                      <div class="detail-label">Vehicle Registration:</div>
-                      <div id="det-imp-vehicle" class="fw-bold text-primary">
-                        VH-789 - Toyota Hilux
-                      </div>
-                    </div>
-                    <div class="d-flex detail-row">
-                      <div class="detail-label">Driver Name:</div>
-                      <div id="det-imp-driver">Muhammad Ahmed</div>
-                    </div>
-                    <div class="d-flex detail-row">
-                      <div class="detail-label">Company Name:</div>
-                      <div id="det-imp-company">ABC Logistics Pvt Ltd.</div>
-                    </div>
-                    <div class="d-flex detail-row">
-                      <div class="detail-label">Impounding Authority:</div>
-                      <div id="det-imp-authority" class="fw-bold">
-                        Traffic Police, RTO
-                      </div>
-                    </div>
-                    <div class="d-flex detail-row">
-                      <div class="detail-label">Location:</div>
-                      <div id="det-imp-location" class="text-danger fw-bold">
-                        Central Depot Yard - B4
-                      </div>
-                    </div>
-                    <div class="d-flex detail-row">
-                      <div class="detail-label">Impoundment Date:</div>
-                      <div id="det-imp-date">22 Dec 2025 | 11:30 AM</div>
-                    </div>
-                    <div class="d-flex detail-row">
-                      <div class="detail-label">Reason:</div>
-                      <div>
-                        <span
-                          class="badge bg-light text-dark border"
-                          id="det-imp-reason"
-                          >Obstruction</span
-                        >
-                      </div>
-                    </div>
-                    <div class="d-flex detail-row border-bottom-0">
-                      <div class="detail-label">Additional Notes:</div>
-                      <div id="det-imp-notes" class="text-muted small">
-                        Vehicle was found blocking the main exit gate for over 3
-                        hours.
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            <div class="bg-white rounded-4 p-4 shadow-sm border">
+             <div class="bg-white rounded-4 p-4 shadow-sm border">
               <div
                 class="d-flex justify-content-between align-items-center mb-4"
               >
@@ -2339,23 +2809,101 @@
                       </td>
                       <td><small>22 Dec 2025, 11:30 AM</small></td>
                       <td><span class="badge bg-danger">Impounded</span></td>
-                      <td class="text-center">
-                        <button
-                          class="btn btn-sm btn-light border"
-                          title="View Detail"
-                        >
-                          <i class="fas fa-external-link-alt text-primary"></i>
-                        </button>
-                      </td>
+                     <td>
+                            <button class="btn btn-sm btn-light border" onclick="toggleImpoundDetail(true)">
+                                <i class="fas fa-eye"></i>
+                            </button>
+                        </td>
                     </tr>
                   </tbody>
                 </table>
               </div>
             </div>
+            </div>
+
+           <div id="impound-detail-view" class="d-none fade-in">
+            <div class="d-flex align-items-center mb-4">
+                <button
+                  class="btn secondary-hover rounded-circle me-3"
+                  onclick="toggleImpoundDetail(false)"
+                  style="
+                    width: 40px;
+                    height: 40px;
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    border: 1px solid #ddd;
+                  "
+                >
+                  <i class="fas fa-arrow-left"></i>
+                </button>
+                <h3 class="fw-bold mb-0">Impoundment Report</h3>
+              </div>
+             <div class="bg-white p-4 rounded-4 shadow-sm border mb-4">
+              <div class="row">
+                <div class="col-md-12">
+                  <div class="container-fluid p-0">
+                    <div class="d-flex detail-row">
+                      <div class="detail-label">Reference Number:</div>
+                      <div id="det-imp-ref">REF-108245</div>
+                    </div>
+
+                    <div class="d-flex detail-row">
+                      <div class="detail-label">Date of Impoundment:</div>
+                      <div id="det-imp-date">22 Dec 2025 | 11:30 AM</div>
+                    </div>
+
+                    <div class="d-flex detail-row">
+                      <div class="detail-label">Vehicle Plate Number:</div>
+                      <div id="det-imp-plate" >VH-789 - Toyota Hilux</div>
+                    </div>
+
+                    <div class="d-flex detail-row">
+                      <div class="detail-label">Driver Name:</div>
+                      <div id="det-imp-driver">Muhammad Ahmed</div>
+                    </div>
+
+                    <div class="d-flex detail-row">
+                      <div class="detail-label">Location:</div>
+                      <div id="det-imp-location">Central Depot Yard - B4</div>
+                    </div>
+
+                    <div class="d-flex detail-row">
+                      <div class="detail-label">Reason for Impoundment:</div>
+                      <div id="det-imp-reason">
+                        <div class="">Obstruction</div>
+                        <ul class="small text-muted mb-0" style="list-style: none; padding-left: 0;">
+                          <li>- Non-Payment or ticket or emblems</li>
+                          <li>- Illegal parking</li>
+                          <li>- Document issues</li>
+                          <li>- Vehicle safety (low thread, lights)</li>
+                          <li>- Others</li>
+                        </ul>
+                      </div>
+                    </div>
+
+                    <div class="d-flex detail-row">
+                      <div class="detail-label">Authority Involved:</div>
+                      <div id="det-imp-authority">Traffic Police, RTO</div>
+                    </div>
+
+                    <div class="d-flex detail-row border-bottom-0">
+                      <div class="detail-label">Vehicle Status / Location Packed:</div>
+                      <div id="det-imp-status">Confirmed / Secured</div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+           </div>
+
+           
           </div>
+
           <!-- breakdown -->
           <div id="breakdown-detail-view" class="hidden fade-in">
-            <div
+           <div id="breakdown-table">
+               <div
               class="d-md-flex justify-content-between align-items-center mb-4"
             >
               <div class="d-flex align-items-start">
@@ -2374,7 +2922,7 @@
                 </button>
 
                 <div>
-                  <h3 class="fw-bold text-navy">Breakdown Reporting</h3>
+                  <h3 class="fw-bold text-navy">Vehicle Breakdown</h3>
                   <p class="text-muted small">
                     Log mechanical failures and request recovery support
                   </p>
@@ -2398,7 +2946,7 @@
                   </div>
                   <div>
                     <h4 class="fw-bold m-0">03</h4>
-                    <small class="text-muted">Ongoing Repairs</small>
+                    <small class="">Ongoing Repairs</small>
                   </div>
                 </div>
               </div>
@@ -2409,7 +2957,7 @@
                   </div>
                   <div>
                     <h4 class="fw-bold m-0">02</h4>
-                    <small class="text-muted">Towing Assigned</small>
+                    <small class="">Towing Assigned</small>
                   </div>
                 </div>
               </div>
@@ -2420,80 +2968,7 @@
                   </div>
                   <div>
                     <h4 class="fw-bold m-0">12</h4>
-                    <small class="text-muted">Fixed Today</small>
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            <div class="bg-white p-4 rounded-4 shadow-sm border mb-4">
-              <h6 class="text-muted mb-3">Select Vehicle</h6>
-              <select class="form-select mb-4 fw-bold border-2">
-                <option>VH-789 - Volkswagen Voyage</option>
-              </select>
-
-              <div class="row">
-                <div class="col-md-12">
-                  <div class="container-fluid p-0">
-                    <div class="d-flex detail-row">
-                      <div class="detail-label">Incident ID:</div>
-                      <div class="fw-bold">BRK-9921</div>
-                    </div>
-                    <div class="d-flex detail-row">
-                      <div class="detail-label">Company Name:</div>
-                      <div>ABC Logistics Pvt Ltd.</div>
-                    </div>
-                    <div class="d-flex detail-row">
-                      <div class="detail-label">Driver Name:</div>
-                      <div>Muhammad Ahmed</div>
-                    </div>
-                    <div class="d-flex detail-row">
-                      <div class="detail-label">Vehicle Registration:</div>
-                      <div class="fw-bold">VH-789 (Toyota Hilux)</div>
-                    </div>
-                    <div class="d-flex detail-row">
-                      <div class="detail-label">Breakdown Time:</div>
-                      <div>23 Dec 2025, 10:45 AM</div>
-                    </div>
-                    <div class="d-flex detail-row">
-                      <div class="detail-label">Incident Location:</div>
-                      <div class="text-danger fw-bold">
-                        <i class="fas fa-map-marker-alt me-1"></i> M-5 Motorway
-                        (Near Sukkur)
-                      </div>
-                    </div>
-
-                    <div class="d-flex detail-row">
-                      <div class="detail-label">Reported Issues:</div>
-                      <div class="d-flex flex-wrap gap-1">
-                        <span class="badge bg-light text-dark border"
-                          >Axle defect</span
-                        >
-                        <span class="badge bg-light text-dark border"
-                          >Injector defect</span
-                        >
-                        <span
-                          class="badge bg-primary-subtle text-primary border"
-                          >Other: Engine Smoke</span
-                        >
-                      </div>
-                    </div>
-
-                    <div class="d-flex detail-row">
-                      <div class="detail-label">Detailed Description:</div>
-                      <div class="text-muted italic">
-                        Engine started making loud noise followed by smoke
-                      </div>
-                    </div>
-                    <div class="d-flex detail-row border-bottom-0">
-                      <div class="detail-label">Evidence Uploaded:</div>
-                      <div>
-                        <a href="#" class="text-primary text-decoration-none"
-                          ><i class="fas fa-image me-1"></i
-                          >view_incident_photo.jpg</a
-                        >
-                      </div>
-                    </div>
+                    <small class="">Fixed Today</small>
                   </div>
                 </div>
               </div>
@@ -2555,11 +3030,11 @@
                           style="cursor: pointer"
                         ></i>
                       </td>
-                      <td>
-                        <button class="btn btn-sm btn-outline-primary border-0">
-                          <i class="fas fa-edit"></i>
-                        </button>
-                      </td>
+                     <td>
+                            <button class="btn btn-sm btn-light border" onclick="toggleBreakdownDetail(true)">
+                                <i class="fas fa-eye"></i>
+                            </button>
+                        </td>
                     </tr>
 
                     <tr>
@@ -2596,8 +3071,8 @@
                         ></i>
                       </td>
                       <td>
-                        <button class="btn btn-sm btn-outline-primary border-0">
-                          <i class="fas fa-edit"></i>
+                        <button class="btn btn-sm btn-light border" onclick="toggleBreakdownDetail(true)">
+                          <i class="fas fa-eye"></i>
                         </button>
                       </td>
                     </tr>
@@ -2605,6 +3080,76 @@
                 </table>
               </div>
             </div>
+           </div>
+
+           <div id="breakdown-detail" class="d-none fade-in ">
+            <div class="d-flex align-items-center mb-4">
+                <button
+                  class="btn secondary-hover rounded-circle me-3"
+                  onclick="toggleBreakdownDetail(false)"
+                  style="
+                    width: 40px;
+                    height: 40px;
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    border: 1px solid #ddd;
+                  "
+                >
+                  <i class="fas fa-arrow-left"></i>
+                </button>
+                <h3 class="fw-bold mb-0">Vehicle Breakdown</h3>
+              </div>
+             <div class="bg-white p-4 rounded-4 shadow-sm border mb-4">
+              <div class="row">
+                <div class="col-md-12">
+                  <div class="container-fluid p-0">
+                    
+                    <div class="d-flex detail-row">
+                      <div class="detail-label">Vehicle Plate Number:</div>
+                      <div id="det-brk-plate">VH-789 (Toyota Hilux)</div>
+                    </div>
+
+                    <div class="d-flex detail-row">
+                      <div class="detail-label">Driver Name:</div>
+                      <div id="det-brk-driver">Muhammad Ahmed</div>
+                    </div>
+
+                    <div class="d-flex detail-row">
+                      <div class="detail-label">Location:</div>
+                      <div id="det-brk-location">
+                        <i class="fas fa-map-marker-alt me-1"></i> M-5 Motorway (Near Sukkur)
+                      </div>
+                    </div>
+
+                    <div class="d-flex detail-row">
+                      <div class="detail-label">Breakdown Type:</div>
+                      <div id="det-brk-type">
+                        <div class="small text-muted">
+                          - Gas Cut<br>
+                          - Injector defect<br>
+                          - Axle defect<br>
+                          - oil seal defect<br>
+                          - Clutch defect<br>
+                          - Kick starter defect<br>
+                          - Gear selector defect<br>
+                          - Others (define)
+                        </div>
+                      </div>
+                    </div>
+
+                    <div class="d-flex detail-row border-bottom-0">
+                      <div class="detail-label">Action Taken:</div>
+                      <div id="det-brk-action">Recovery Vehicle Dispatched</div>
+                    </div>
+
+                  </div>
+                </div>
+              </div>
+            </div>
+           </div>
+
+            
           </div>
 
           <!-- illegal -->
@@ -2647,7 +3192,7 @@
                   </div>
                   <div>
                     <h4 class="fw-bold m-0">02</h4>
-                    <small class="text-muted">Active Cases</small>
+                    <small class="">Active Cases</small>
                   </div>
                 </div>
               </div>
@@ -2658,7 +3203,7 @@
                   </div>
                   <div>
                     <h4 class="fw-bold m-0">15</h4>
-                    <small class="text-muted">Total Reported</small>
+                    <small class="">Total Reported</small>
                   </div>
                 </div>
               </div>
@@ -2669,7 +3214,7 @@
                   </div>
                   <div>
                     <h4 class="fw-bold m-0">13</h4>
-                    <small class="text-muted">Resolved/Released</small>
+                    <small class="">Resolved/Released</small>
                   </div>
                 </div>
               </div>
@@ -2680,7 +3225,7 @@
                   </div>
                   <div>
                     <h4 class="fw-bold m-0">01</h4>
-                    <small class="text-muted">Legal Review</small>
+                    <small class="">Legal Review</small>
                   </div>
                 </div>
               </div>
@@ -2825,7 +3370,7 @@
                   </div>
                   <div>
                     <h4 class="fw-bold m-0">05</h4>
-                    <small class="text-muted">Total This Year</small>
+                    <small class="">Total This Year</small>
                   </div>
                 </div>
               </div>
@@ -2836,7 +3381,7 @@
                   </div>
                   <div>
                     <h4 class="fw-bold m-0">01</h4>
-                    <small class="text-muted">Medical Alerts</small>
+                    <small class="">Medical Alerts</small>
                   </div>
                 </div>
               </div>
@@ -2847,7 +3392,7 @@
                   </div>
                   <div>
                     <h4 class="fw-bold m-0">03</h4>
-                    <small class="text-muted">Insurance Claims</small>
+                    <small class="">Insurance Claims</small>
                   </div>
                 </div>
               </div>
@@ -2858,7 +3403,7 @@
                   </div>
                   <div>
                     <h4 class="fw-bold m-0">02</h4>
-                    <small class="text-muted">Resolved</small>
+                    <small class="">Resolved</small>
                   </div>
                 </div>
               </div>
@@ -2990,20 +3535,20 @@
 
             <div class="row g-3 mb-4">
               <div class="col-md-4">
-                <div class="stat-card shadow-sm bg-white p-3">
+                <div class="stat-card shadow-sm p-3">
                   <div class="d-flex align-items-center">
                     <div class="icon-box bg-success-subtle text-success me-3">
                       <i class="fas fa-link"></i>
                     </div>
                     <div>
                       <h4 class="fw-bold m-0">01</h4>
-                      <small class="text-muted fw-bold">UNDER RECOVERY</small>
+                      <small class="fw-bold">UNDER RECOVERY</small>
                     </div>
                   </div>
                 </div>
               </div>
               <div class="col-md-4">
-                <div class="stat-card shadow-sm bg-white p-3">
+                <div class="stat-card shadow-sm p-3">
                   <div class="d-flex align-items-center">
                     <div
                       class="icon-box bg-secondary-subtle text-secondary me-3"
@@ -3012,7 +3557,7 @@
                     </div>
                     <div>
                       <h4 class="fw-bold m-0">08</h4>
-                      <small class="text-muted fw-bold">TOTAL RECOVERED</small>
+                      <small class="fw-bold">TOTAL RECOVERED</small>
                     </div>
                   </div>
                 </div>
@@ -3277,6 +3822,12 @@
             </div>
           </div>
         </div>
+
+         <footer class="footer-main mt-auto">
+          <div class="text-center py-2 small">
+            © 2025 CHAMPS VMA. All Rights Reserved.
+          </div>
+        </footer>
       </div>
     </div>
 
@@ -3388,9 +3939,7 @@
           <div class="modal-body p-4" style="background-color: #f8f9fa">
             <form class="row g-3 px-2">
               <div class="col-12 mb-2">
-                <h6 class="fw-bold  border-bottom pb-2">
-                  Personal Information
-                </h6>
+                <h6 class="fw-bold border-bottom pb-2">Personal Information</h6>
               </div>
 
               <div class="col-md-6">
@@ -3428,9 +3977,7 @@
               </div>
 
               <div class="col-12 mt-4 mb-2">
-                <h6 class="fw-bold border-bottom pb-2">
-                  Professional Details
-                </h6>
+                <h6 class="fw-bold border-bottom pb-2">Professional Details</h6>
               </div>
 
               <div class="col-md-6">
@@ -4069,7 +4616,7 @@
                 <div class="input-group">
                   <span
                     class="input-group-text bg-white border-dark border-end-0"
-                    ><i class="fas fa-map-marker-alt "></i
+                    ><i class="fas fa-map-marker-alt"></i
                   ></span>
                   <input
                     type="text"
@@ -4218,7 +4765,7 @@
               </div>
 
               <div class="col-12 mt-2">
-                <label class="small fw-bold mb-1 "
+                <label class="small fw-bold mb-1"
                   ><i class="fas fa-camera me-1"></i> Upload Evidence
                   Photo</label
                 >
@@ -4666,6 +5213,7 @@
           "vehicle-mgmt-view",
           "check-vehicle-view",
           "check-driver-view",
+          "driver-mate-view",
           "route-mgmt-view",
           "service-history-view",
           "waybill-details-view",
@@ -4771,6 +5319,141 @@
           otherField.classList.remove("d-none");
         } else {
           otherField.classList.add("d-none");
+        }
+      }
+
+      //menu active class function
+      function setActive(el) {
+        document
+          .querySelectorAll(".nav-menu .nav-link")
+          .forEach((link) => link.classList.remove("active"));
+
+        el.classList.add("active");
+      }
+
+      //toggle vehicle detail function
+      function toggleVehicleDetail(showDetail) {
+        const tableView = document.getElementById("vehicle-table-view");
+        const detailView = document.getElementById("vehicle-detail-view");
+
+        if (showDetail) {
+          tableView.classList.add("d-none"); // Table ko hide karo
+          detailView.classList.remove("d-none"); // Detail ko dikhao
+        } else {
+          tableView.classList.remove("d-none"); // Table ko wapis dikhao
+          detailView.classList.add("d-none"); // Detail ko hide karo
+        }
+      }
+
+      //toggle driver detail function
+      function toggleDriverDetail(showDetail) {
+        const tableView = document.getElementById("driver-table-view");
+        const detailView = document.getElementById("driver-detail-view");
+
+        if (showDetail) {
+          tableView.classList.add("d-none"); // Table ko hide karo
+          detailView.classList.remove("d-none"); // Detail ko dikhao
+        } else {
+          tableView.classList.remove("d-none"); // Table ko wapis dikhao
+          detailView.classList.add("d-none"); // Detail ko hide karo
+        }
+      }
+
+       //toggle route detail function
+      function toggleRouteDetail(showDetail) {
+        const tableView = document.getElementById("route-table-view");
+        const detailView = document.getElementById("route-detail-view");
+
+        if (showDetail) {
+          tableView.classList.add("d-none"); // Table ko hide karo
+          detailView.classList.remove("d-none"); // Detail ko dikhao
+        } else {
+          tableView.classList.remove("d-none"); // Table ko wapis dikhao
+          detailView.classList.add("d-none"); // Detail ko hide karo
+        }
+      }
+
+       //toggle service detail function
+      function toggleServiceDetail(showDetail) {
+        const tableView = document.getElementById("service-table-view");
+        const detailView = document.getElementById("service-detail-view");
+
+        if (showDetail) {
+          tableView.classList.add("d-none"); // Table ko hide karo
+          detailView.classList.remove("d-none"); // Detail ko dikhao
+        } else {
+          tableView.classList.remove("d-none"); // Table ko wapis dikhao
+          detailView.classList.add("d-none"); // Detail ko hide karo
+        }
+      }
+
+       //toggle waybill detail function
+      function toggleWaybillDetail(showDetail) {
+        const tableView = document.getElementById("waybill-table-view");
+        const detailView = document.getElementById("waybill-detail-view");
+
+        if (showDetail) {
+          tableView.classList.add("d-none"); // Table ko hide karo
+          detailView.classList.remove("d-none"); // Detail ko dikhao
+        } else {
+          tableView.classList.remove("d-none"); // Table ko wapis dikhao
+          detailView.classList.add("d-none"); // Detail ko hide karo
+        }
+      }
+
+      //toggle driver mate detail function
+      function toggleDriverMateDetail(showDetail) {
+        const tableView = document.getElementById("driver-mate-table-view");
+        const detailView = document.getElementById("driver-mate-detail-view");
+
+        if (showDetail) {
+          tableView.classList.add("d-none"); // Table ko hide karo
+          detailView.classList.remove("d-none"); // Detail ko dikhao
+        } else {
+          tableView.classList.remove("d-none"); // Table ko wapis dikhao
+          detailView.classList.add("d-none"); // Detail ko hide karo
+        }
+      }
+
+      //toggle impound detail function
+      function toggleImpoundDetail(showDetail) {
+        const tableView = document.getElementById("impound-table-view");
+        const detailView = document.getElementById("impound-detail-view");
+
+        if (showDetail) {
+          tableView.classList.add("d-none"); // Table ko hide karo
+          detailView.classList.remove("d-none"); // Detail ko dikhao
+        } else {
+          tableView.classList.remove("d-none"); // Table ko wapis dikhao
+          detailView.classList.add("d-none"); // Detail ko hide karo
+        }
+      }
+
+      //toggle impound detail function
+      function toggleImpoundDetail(showDetail) {
+        const tableView = document.getElementById("impound-table-view");
+        const detailView = document.getElementById("impound-detail-view");
+
+        if (showDetail) {
+          tableView.classList.add("d-none"); // Table ko hide karo
+          detailView.classList.remove("d-none"); // Detail ko dikhao
+        } else {
+          tableView.classList.remove("d-none"); // Table ko wapis dikhao
+          detailView.classList.add("d-none"); // Detail ko hide karo
+        }
+      }
+
+      //toggle breakdown detail function
+      function toggleBreakdownDetail(showDetail) {
+        const tableView = document.getElementById("breakdown-table");
+        const detailView = document.getElementById("breakdown-detail");
+
+        if (showDetail) {
+          tableView.classList.add("d-none"); // Table ko hide karo
+          detailView.classList.remove("d-none"); // Detail ko dikhao
+        } else {
+          tableView.classList.remove("d-none"); // Table ko wapis dikhao
+          detailView.classList.add("d-none"); // Detail ko hide karo
         }
       }
     </script>
