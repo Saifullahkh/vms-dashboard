@@ -8,8 +8,8 @@ if (!isset($_SESSION['user'])) {
 ?>
 
 <?php
-  include("../header_meta.php");
-  ?>
+include("../header_meta.php");
+?>
 
 <div id="dashboard-page">
 
@@ -100,23 +100,21 @@ if (!isset($_SESSION['user'])) {
             <table id="waybillTable" class="table table-hover align-middle w-100 scrollable-tbody">
               <thead class="table-light">
                 <tr>
-                  <th>WB ID</th>
-                  <th>Driver Name</th>
-                  <th>Destination</th>
-                  <th>Quantity</th>
-                  <th>Description of Good</th>
+                  <th>Waybill No</th>
+                  <th>Date Dispatched</th>
+                  <th>Sender Name</th>
+                  <th>Receiver Name</th>
+                  <th>Delivery Location</th>
                   <th class="text-center">Action</th>
                 </tr>
               </thead>
               <tbody>
                 <tr>
-                  <td class="">#WB-5520</td>
-                  <td>Ahmed Khan</td>
-                  <td>Lahore</td>
-                  <td>45 Units</td>
-                  <td>
-                    Solar Panels
-                  </td>
+                  <td>WB-5520</td>
+                  <td>20 Dec 2025</td>
+                  <td>Global Logistics Inc.</td>
+                  <td>Green Energy Corp</td>
+                  <td>Industrial Area, Lahore</td>
                   <td class="text-center">
                     <a class="btn btn-sm btn-light border shadow-sm" href="./waybill-form.php">
                       <i class="fas fa-eye text-primary"></i>
@@ -124,13 +122,11 @@ if (!isset($_SESSION['user'])) {
                   </td>
                 </tr>
                 <tr>
-                  <td class="">#WB-1020</td>
-                  <td>Ayan khan</td>
-                  <td>Lahore</td>
-                  <td>22 Units</td>
-                  <td>
-                    Electronics
-                  </td>
+                  <td>WB-5520</td>
+                  <td>20 Dec 2025</td>
+                  <td>Global Logistics Inc.</td>
+                  <td>Green Energy Corp</td>
+                  <td>Industrial Area, Lahore</td>
                   <td class="text-center">
                     <a class="btn btn-sm btn-light border shadow-sm" href="./waybill-form.php">
                       <i class="fas fa-eye text-primary"></i>
@@ -138,13 +134,11 @@ if (!isset($_SESSION['user'])) {
                   </td>
                 </tr>
                 <tr>
-                  <td class="">#WB-1020</td>
-                  <td>Ayan khan</td>
-                  <td>Lahore</td>
-                  <td>22 Units</td>
-                  <td>
-                    Electronics
-                  </td>
+                  <td>WB-5520</td>
+                  <td>20 Dec 2025</td>
+                  <td>Global Logistics Inc.</td>
+                  <td>Green Energy Corp</td>
+                  <td>Industrial Area, Lahore</td>
                   <td class="text-center">
                     <a class="btn btn-sm btn-light border shadow-sm" href="./waybill-form.php">
                       <i class="fas fa-eye text-primary"></i>
@@ -152,13 +146,11 @@ if (!isset($_SESSION['user'])) {
                   </td>
                 </tr>
                 <tr>
-                  <td class="">#WB-1020</td>
-                  <td>Ayan khan</td>
-                  <td>Lahore</td>
-                  <td>22 Units</td>
-                  <td>
-                    Electronics
-                  </td>
+                  <td>WB-5520</td>
+                  <td>20 Dec 2025</td>
+                  <td>Global Logistics Inc.</td>
+                  <td>Green Energy Corp</td>
+                  <td>Industrial Area, Lahore</td>
                   <td class="text-center">
                     <a class="btn btn-sm btn-light border shadow-sm" href="./waybill-form.php">
                       <i class="fas fa-eye text-primary"></i>
@@ -175,7 +167,7 @@ if (!isset($_SESSION['user'])) {
 
     </div>
 
-  <?php include("../footer.php"); ?>
+    <?php include("../footer.php"); ?>
   </div>
 </div>
 
@@ -283,4 +275,3 @@ if (!isset($_SESSION['user'])) {
     </div>
   </div>
 </div>
-

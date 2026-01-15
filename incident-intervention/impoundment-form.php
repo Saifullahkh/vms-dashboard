@@ -91,10 +91,11 @@ if (!isset($_SESSION['user'])) {
                         </div>
                     </div>
                      <div class="col-xl-5">
-                        <div class="text-center p-2 ">
-                                <img src="../img/impoundment.jfif"
-                                    alt="Truck Image" class="img-fluid" style="max-height: 300px; object-fit: contain;">
-                            </div>
+                        <div class="text-center p-2">
+                            <img src="../img/impoundment.jfif" alt="vehicle Impoundment Preview"
+                                class="img-fluid rounded-4  preview-trigger"
+                                style="height: 400px; object-fit: contain; cursor: zoom-in;">
+                        </div>
                     </div>
                 </div>
             </div>

@@ -37,7 +37,7 @@ if (!isset($_SESSION['user'])) {
                         </a>
                         <h3 class="fw-bold text-navy m-0">Impoundment</h3>
                     </div>
-                    <button class="btn secondary-color rounded-pill px-4 shadow-sm" data-bs-toggle="modal"
+                    <button class="btn secondary-color rounded-pill px-4 shadow-sm mt-md-0 mt-3" data-bs-toggle="modal"
                         data-bs-target="#impoundmentModal">
                         <i class="fas fa-plus me-2"></i> Add New Impoundment
                     </button>

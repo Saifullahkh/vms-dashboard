@@ -42,7 +42,7 @@ if (!isset($_SESSION['user'])) {
           </div>
         </div>
         <div class="d-flex gap-2">
-          <button class="btn secondary-color rounded-pill px-4 fw-bold shadow-sm" data-bs-toggle="modal"
+          <button class="btn secondary-color rounded-pill px-4 fw-bold shadow-sm mt-md-0 mt-3" data-bs-toggle="modal"
             data-bs-target="#routeModal">
             <i class="fas fa-plus me-1"></i> Add Route Diversion
           </button>

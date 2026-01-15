@@ -7,8 +7,8 @@ if (!isset($_SESSION['user'])) {
 ?>
 
 <?php
-  include("../header_meta.php");
-  ?>
+include("../header_meta.php");
+?>
 
 <div id="dashboard-page">
 
@@ -42,7 +42,7 @@ if (!isset($_SESSION['user'])) {
           </div>
         </div>
         <div class="d-flex gap-2">
-          <button class="btn secondary-color rounded-pill px-4 fw-bold shadow-sm" data-bs-toggle="modal"
+          <button class="btn secondary-color rounded-pill px-4 fw-bold shadow-sm mt-md-0 mt-3" data-bs-toggle="modal"
             data-bs-target="#driverMisconductModal">
             <i class="fas fa-plus me-1"></i> Add Driver Misconduct
           </button>
@@ -100,24 +100,21 @@ if (!isset($_SESSION['user'])) {
           <table id="recoveryStabilityTable" class="table table-hover align-middle w-100 scrollable-tbody">
             <thead class="table-light text-secondary small text-uppercase">
               <tr>
-
                 <th>Vehicle No</th>
                 <th>Driver Name</th>
                 <th>Cause</th>
                 <th>Mental Stability</th>
-                <th>Location</th>
+                <th>Alcohol / Drug Test Result</th>
                 <th class="text-center">Action</th>
               </tr>
             </thead>
             <tbody>
               <tr>
-                <td><span class="badge bg-light text-dark border fw-semibold">VH-552</span></td>
-                <td>John Doe</td>
-                <td>Mud</td>
-                <td> Stable</td>
-                <td>
-                  <small><i class="fas fa-map-marker-alt text-danger me-1"></i> Islamabad</small>
-                </td>
+                <td>VH-789</td>
+                <td>Muhammad Ahmed</td>
+                <td>Reckless Driving</td>
+                <td class="text-center">Stable</td>
+                <td>Negative</td>
                 <td class="text-center">
                   <a class="btn btn-sm btn-light border shadow-sm" href="./driver-misconduct-form.php"
                     title="View Details">
@@ -126,13 +123,11 @@ if (!isset($_SESSION['user'])) {
                 </td>
               </tr>
               <tr>
-                <td><span class="badge bg-light text-dark border fw-semibold">VH-552</span></td>
-                <td>John Doe</td>
-                <td>Mud</td>
-                <td> Stable</td>
-                <td>
-                  <small><i class="fas fa-map-marker-alt text-danger me-1"></i> Islamabad</small>
-                </td>
+                <td>VH-789</td>
+                <td>Muhammad Ahmed</td>
+                <td>Reckless Driving</td>
+                <td class="text-center">Stable</td>
+                <td>Negative</td>
                 <td class="text-center">
                   <a class="btn btn-sm btn-light border shadow-sm" href="./driver-misconduct-form.php"
                     title="View Details">
@@ -141,13 +136,11 @@ if (!isset($_SESSION['user'])) {
                 </td>
               </tr>
               <tr>
-                <td><span class="badge bg-light text-dark border fw-semibold">VH-552</span></td>
-                <td>John Doe</td>
-                <td>Mud</td>
-                <td> Stable</td>
-                <td>
-                  <small><i class="fas fa-map-marker-alt text-danger me-1"></i> Islamabad</small>
-                </td>
+                <td>VH-789</td>
+                <td>Muhammad Ahmed</td>
+                <td>Reckless Driving</td>
+                <td class="text-center">Stable</td>
+                <td>Negative</td>
                 <td class="text-center">
                   <a class="btn btn-sm btn-light border shadow-sm" href="./driver-misconduct-form.php"
                     title="View Details">
@@ -156,13 +149,11 @@ if (!isset($_SESSION['user'])) {
                 </td>
               </tr>
               <tr>
-                <td><span class="badge bg-light text-dark border fw-semibold">VH-552</span></td>
-                <td>John Doe</td>
-                <td>Mud</td>
-                <td> Stable</td>
-                <td>
-                  <small><i class="fas fa-map-marker-alt text-danger me-1"></i> Islamabad</small>
-                </td>
+                <td>VH-789</td>
+                <td>Muhammad Ahmed</td>
+                <td>Reckless Driving</td>
+                <td class="text-center">Stable</td>
+                <td >Negative</td>
                 <td class="text-center">
                   <a class="btn btn-sm btn-light border shadow-sm" href="./driver-misconduct-form.php"
                     title="View Details">

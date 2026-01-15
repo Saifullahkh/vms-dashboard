@@ -101,7 +101,7 @@ if (!isset($_SESSION['user'])) {
                             <div class="card-body p-3">
                                 <div class="table-responsive">
                                     <table
-                                        class="table table-hover align-middle text-center mb-0 global-datatable scrollable-tbody">
+                                        class="table table-hover align-middle text-center mb-0  scrollable-tbody">
                                         <thead class="bg-light small fw-bold">
                                             <tr>
                                                 <th>Route</th>

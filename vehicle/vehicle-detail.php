@@ -94,22 +94,20 @@ if (!isset($_SESSION['user'])) {
         <table id="myAssetsTable" class="table table-hover align-middle w-100  scrollable-tbody">
           <thead class="table-light">
             <tr>
-              <th>Fleet No</th>
+              <th>Truck No</th>
+              <th>Vehicle Owner Name</th>
               <th>Vehicle Manager Name</th>
-              <th>Registration No</th>
-              <th>Make</th>
-              <th>Model</th>
+              <th>Make / Model</th>
               <th>Status</th>
               <th class="text-center">Action</th>
             </tr>
           </thead>
           <tbody>
             <tr>
-              <td>VH-789</td>
-              <td>Zaid Ali</td>
               <td>AB-1234</td>
-              <td>Volkswagen</td>
-              <td>Voyage</td>
+              <td>Zaid Ali</td>
+              <td>John Deo</td>
+              <td>Volkswagen Voyage</td>
               <td><span class="badge bg-success-subtle text-success border border-success px-3">Active</span></td>
               <td class="text-center">
                 <a href="./vehicle-detail-form.php" class="btn btn-sm btn-light border shadow-sm">
@@ -118,11 +116,10 @@ if (!isset($_SESSION['user'])) {
               </td>
             </tr>
              <tr>
-              <td>VH-789</td>
+               <td>AB-1234</td>
               <td>Zaid Ali</td>
-              <td>AB-1234</td>
-              <td>Volkswagen</td>
-              <td>Voyage</td>
+              <td>John Deo</td>
+              <td>Volkswagen Voyage</td>
               <td><span class="badge bg-success-subtle text-success border border-success px-3">Active</span></td>
               <td class="text-center">
                 <a href="./vehicle-detail-form.php" class="btn btn-sm btn-light border shadow-sm">
@@ -131,11 +128,10 @@ if (!isset($_SESSION['user'])) {
               </td>
             </tr>
             <tr>
-              <td>VH-789</td>
-              <td>Zaid Ali</td>
               <td>AB-1234</td>
-              <td>Volkswagen</td>
-              <td>Voyage</td>
+              <td>Zaid Ali</td>
+              <td>John Deo</td>
+              <td>Volkswagen Voyage</td>
               <td><span class="badge bg-success-subtle text-success border border-success px-3">Active</span></td>
               <td class="text-center">
                 <a href="./vehicle-detail-form.php" class="btn btn-sm btn-light border shadow-sm">
@@ -144,11 +140,10 @@ if (!isset($_SESSION['user'])) {
               </td>
             </tr>
             <tr>
-              <td>VH-789</td>
+               <td>AB-1234</td>
               <td>Zaid Ali</td>
-              <td>AB-1234</td>
-              <td>Volkswagen</td>
-              <td>Voyage</td>
+              <td>John Deo</td>
+              <td>Volkswagen Voyage</td>
               <td><span class="badge bg-success-subtle text-success border border-success px-3">Active</span></td>
               <td class="text-center">
                 <a href="./vehicle-detail-form.php" class="btn btn-sm btn-light border shadow-sm">

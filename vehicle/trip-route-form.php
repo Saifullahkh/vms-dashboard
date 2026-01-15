@@ -133,7 +133,7 @@ if (!isset($_SESSION['user'])) {
                                 </div>
                             </div>
 
-                            <div class="rounded-3 overflow-hidden mb-3 border" style="height: 250px;">
+                            <div class="rounded-3 overflow-hidden mb-3 border " style="height: 250px;">
                                 <iframe
                                     src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d106203.18956976935!2d72.936058913936!3d33.68442015383921!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x38dfbfd07891722f%3A0x6059515133d452ce!2sIslamabad%2C%20Islamabad%20Capital%20Territory!5e0!3m2!1sen!2spk!4v1700000000000!5m2!1sen!2spk"
                                     width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy">
