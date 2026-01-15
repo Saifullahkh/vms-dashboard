@@ -81,10 +81,11 @@ if (!isset($_SESSION['user'])) {
                         </div>
                     </div>
                      <div class="col-xl-5">
-                        <div class="text-center p-2 ">
-                                <img src="../img/diversion.jfif"
-                                    alt="Truck Image" class="img-fluid" style="max-height: 200px; object-fit: contain;">
-                            </div>
+                        <div class="text-center p-2">
+                            <img src="../img/diversion.jfif" alt="Route Diverion Preview"
+                                class="img-fluid rounded-4 preview-trigger"
+                                style="height: 400px; object-fit: contain; cursor: zoom-in;">
+                        </div>
                     </div>
                 </div>
             </div>

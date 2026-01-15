@@ -99,9 +99,8 @@ if (!isset($_SESSION['user'])) {
                                 <tr>
                                     <th>Route</th>
                                     <th>Driver Name</th>
-                                    <th>Destination</th>
-                                    <th>Weather</th>
-                                    <th>Road</th>        
+                                    <th>Current Location</th>
+                                    <th>FInal Destination</th>     
                                     <th class="text-center">Action</th>
                                 </tr>
                             </thead>
@@ -109,10 +108,8 @@ if (!isset($_SESSION['user'])) {
                                 <tr>
                                     <td class="">Main Highway</td>
                                     <td>Zaid Ali</td>
-                                    
+                                    <td>Peshawar</td>
                                     <td>Lahore</td>
-                                    <td><i class="fas fa-sun text-warning me-1"></i> Sunny</td>
-                                    <td>Smooth</td>
                                     <td class="text-center">
                                         <a class="btn btn-sm btn-light border shadow-sm" href="./trip-route-form.php">
                                             <i class="fas fa-eye text-primary"></i>
@@ -122,12 +119,8 @@ if (!isset($_SESSION['user'])) {
                                 <tr>
                                     <td class="">GT Road</td>
                                     <td>Ali Raza</td>
-                                    
+                                    <td>Karachi</td>
                                     <td>Peshawar</td>
-                                    <td><i class="fas fa-cloud-showers-heavy text-info me-1"></i> Rainy</td>
-                                    <td>Rough</td>
-                                   
-                                   
                                     <td class="text-center">
                                         <a class="btn btn-sm btn-light border shadow-sm" href="./trip-route-form.php">
                                             <i class="fas fa-eye text-primary"></i>
@@ -137,12 +130,9 @@ if (!isset($_SESSION['user'])) {
                                  <tr>
                                     <td class="">GT Road</td>
                                     <td>Ali Raza</td>
-                                    
+                                    <td>Islamabad</td>
                                     <td>Peshawar</td>
-                                    <td><i class="fas fa-cloud-showers-heavy text-info me-1"></i> Rainy</td>
-                                    <td>Rough</td>
-                                   
-                                   
+                                    
                                     <td class="text-center">
                                         <a class="btn btn-sm btn-light border shadow-sm" href="./trip-route-form.php">
                                             <i class="fas fa-eye text-primary"></i>
@@ -152,12 +142,8 @@ if (!isset($_SESSION['user'])) {
                                  <tr>
                                     <td class="">GT Road</td>
                                     <td>Ali Raza</td>
-                                    
                                     <td>Peshawar</td>
-                                    <td><i class="fas fa-cloud-showers-heavy text-info me-1"></i> Rainy</td>
-                                    <td>Rough</td>
-                                   
-                                   
+                                    <td>Lahore</td>
                                     <td class="text-center">
                                         <a class="btn btn-sm btn-light border shadow-sm" href="./trip-route-form.php">
                                             <i class="fas fa-eye text-primary"></i>

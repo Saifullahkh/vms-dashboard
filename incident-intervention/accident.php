@@ -37,7 +37,7 @@ if (!isset($_SESSION['user'])) {
           <h3 class="fw-bold">Accident Report</h3>
         </div>
 
-        <button class="btn secondary-color rounded-pill px-4 shadow-sm" data-bs-toggle="modal"
+        <button class="btn secondary-color rounded-pill px-4 shadow-sm mt-md-0 mt-3" data-bs-toggle="modal"
           data-bs-target="#accidentModal">
           <i class="fas fa-plus me-1"></i> Report New Accident
         </button>
@@ -100,7 +100,7 @@ if (!isset($_SESSION['user'])) {
                 <th>Driver Name</th>
                 <th>Nature of Accident</th>
                 <th>Location</th>
-                
+                <th>Damage / Injury</th>
                 <th class="text-center">Action</th>
               </tr>
             </thead>
@@ -116,7 +116,7 @@ if (!isset($_SESSION['user'])) {
                 <td>
                   <small><i class="fas fa-map-pin text-danger me-1"></i> Sahiwal Bypass</small>
                 </td>
-               
+               <td class="text-center">Yes</td>
                 <td class="text-center">
                   <a class="btn btn-sm btn-light border shadow-sm" href="./accident-form.php">
                     <i class="fas fa-eye text-primary"></i>
@@ -134,7 +134,7 @@ if (!isset($_SESSION['user'])) {
                 <td>
                   <small><i class="fas fa-map-pin text-danger me-1"></i> Sahiwal Bypass</small>
                 </td>
-               
+               <td class="text-center">Yes</td>
                 <td class="text-center">
                   <a class="btn btn-sm btn-light border shadow-sm" href="./accident-form.php">
                     <i class="fas fa-eye text-primary"></i>
@@ -152,7 +152,7 @@ if (!isset($_SESSION['user'])) {
                 <td>
                   <small><i class="fas fa-map-pin text-danger me-1"></i> Sahiwal Bypass</small>
                 </td>
-               
+               <td class="text-center">Yes</td>
                 <td class="text-center">
                   <a class="btn btn-sm btn-light border shadow-sm" href="./accident-form.php">
                     <i class="fas fa-eye text-primary"></i>
@@ -170,7 +170,7 @@ if (!isset($_SESSION['user'])) {
                 <td>
                   <small><i class="fas fa-map-pin text-danger me-1"></i> Sahiwal Bypass</small>
                 </td>
-               
+                <td class="text-center">Yes</td>
                 <td class="text-center">
                   <a class="btn btn-sm btn-light border shadow-sm" href="./accident-form.php">
                     <i class="fas fa-eye text-primary"></i>

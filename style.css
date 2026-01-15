@@ -164,7 +164,7 @@ body {
   display: flex;
 }
 
-/* --- Sidebar Style --- */
+/* --- Sidebar Style CSS --- */
 #sidebar {
   width: var(--sidebar-width);
   background: var(--primary);
@@ -190,12 +190,10 @@ body {
 /* Scrollbar Style */
 .nav-menu::-webkit-scrollbar {
   width: 8px;
- 
 }
 .nav-menu::-webkit-scrollbar-thumb {
   background: rgba(255, 255, 255, 0.2);
   border-radius: 10px;
-
 }
 
 /* 3. Overlay Style */
@@ -248,14 +246,6 @@ body {
   transition: all 0.2s ease-in-out;
 }
 
-/* --- Main Content --- */
-#main-wrapper {
-  margin-left: var(--sidebar-width);
-  width: calc(100% - var(--sidebar-width));
-
-  display: flex; /* footer push ke liye */
-  flex-direction: column;
-}
 
 /* Page load hone ke baad transition on hogi */
 body.ready #sidebar {
@@ -281,12 +271,14 @@ body.ready #main-wrapper {
     z-index: 2000 !important; /* Navbar se upar rakhen */
     transition: transform 0.3s ease !important; /* Mobile pe transition lazmi ho */
   }
-  
+
   /* Jab mobile pe active ho toh HTML margin zero rahe */
   .sidebar-hidden #main-wrapper {
     margin-left: 0 !important;
   }
 }
+
+/* TopBar CSS */
 
 .top-navbar {
   background: var(--primary);
@@ -301,94 +293,6 @@ body.ready #main-wrapper {
   box-shadow: 0 2px 10px rgba(0, 0, 0, 0.02);
 }
 
-/* dashboard css */
-
-
-.tracking-tight { letter-spacing: -1px; }
-
-/* Metric Card Depth & Soft UI */
-.metric-card {
-    background: #ffffff;
-    transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
-    border: 1px solid rgba(226, 232, 240, 0.8) !important;
-}
-
-.metric-card:hover {
-    transform: translateY(-10px);
-    box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.08) !important;
-}
-
-.icon-glow {
-    width: 65px;
-    height: 65px;
-    border-radius: 20px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    box-shadow: 0 10px 20px -5px rgba(67, 97, 238, 0.3);
-}
-
-.metric-shape {
-    position: absolute;
-    width: 120px;
-    height: 120px;
-    right: -30px;
-    bottom: -30px;
-    border-radius: 50%;
-    opacity: 0.15;
-    transition: 0.4s;
-}
-
-.metric-card:hover .metric-shape {
-    transform: scale(1.5);
-    opacity: 0.25;
-}
-
-/* Custom Soft Badges */
-.bg-primary-subtle { background-color: #e0e7ff !important; color: #4361ee !important; }
-.bg-success-subtle { background-color: #dcfce7 !important; color: #10b981 !important; }
-.bg-danger-subtle { background-color: #fee2e2 !important; color: #ef4444 !important; }
-
-/* Shadow Hover */
-.shadow-hover {
-    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
-}
-
-.rounded-5 { border-radius: 2rem !important; }
-.x-small { font-size: 11px; }
-
-/* Dashboard Fade In Animation */
-.fade-in {
-    animation: fadeIn 1s ease-in-out;
-}
-@keyframes fadeIn {
-    from { opacity: 0; transform: scale(0.98); }
-    to { opacity: 1; transform: scale(1); }
-}
-
-/* --- Cards & Components --- */
-.stat-card {
-  background: var(--primary);
-  color: white;
-  border-radius: 16px;
-  padding: 20px;
-  border: none;
-  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.04);
-  display: flex;
-  align-items: center;
-}
-
-.icon-box {
-  width: 55px;
-  height: 55px;
-  border-radius: 12px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 24px;
-  margin-right: 15px;
-}
-
 .btn-logout {
   background: var(--secondary);
   color: var(--white);
@@ -396,6 +300,199 @@ body.ready #main-wrapper {
   border-style: solid;
   border-color: var(--btn);
 }
+
+
+/* --- Main Content --- */
+#main-wrapper {
+  margin-left: var(--sidebar-width);
+  width: calc(100% - var(--sidebar-width));
+
+  display: flex; /* footer push ke liye */
+  flex-direction: column;
+}
+
+
+
+/* dashboard css */
+
+.tracking-tight {
+  letter-spacing: -1px;
+}
+
+/* Metric Card Depth & Soft UI */
+.metric-card {
+  background: #ffffff;
+  transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+  border: 1px solid rgba(226, 232, 240, 0.8) !important;
+}
+
+.metric-card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.08) !important;
+}
+
+.icon-glow {
+  width: 65px;
+  height: 65px;
+  border-radius: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 10px 20px -5px rgba(67, 97, 238, 0.3);
+}
+
+.metric-shape {
+  position: absolute;
+  width: 120px;
+  height: 120px;
+  right: -30px;
+  bottom: -30px;
+  border-radius: 50%;
+  opacity: 0.15;
+  transition: 0.4s;
+}
+
+.metric-card:hover .metric-shape {
+  transform: scale(1.5);
+  opacity: 0.25;
+}
+
+/* Number Badge Styling */
+.count-badge {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    padding: 5px 15px;
+    border-radius: 50px; /* Capsule shape */
+    font-size: 0.85rem;
+    font-weight: 800;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    z-index: 2;
+    transition: all 0.3s ease;
+}
+
+/* Hover Effect for Badge */
+.metric-card:hover .count-badge {
+    transform: scale(1.1);
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.15);
+}
+
+/* Aligning Card Content to not overlap badge */
+.metric-card .position-relative {
+    z-index: 1;
+}
+
+/* Utility for better spacing */
+.shadow-hover {
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+}
+
+/* Custom Soft Badges */
+.bg-primary-subtle {
+  background-color: #e0e7ff !important;
+  color: #4361ee !important;
+}
+.bg-success-subtle {
+  background-color: #dcfce7 !important;
+  color: #10b981 !important;
+}
+.bg-danger-subtle {
+  background-color: #fee2e2 !important;
+  color: #ef4444 !important;
+}
+
+/* Shadow Hover */
+.shadow-hover {
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
+}
+
+.rounded-5 {
+  border-radius: 2rem !important;
+}
+.x-small {
+  font-size: 11px;
+}
+
+/* Dashboard Fade In Animation */
+.fade-in {
+  animation: fadeIn 1s ease-in-out;
+}
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: scale(0.98);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+/* --- Professional Dashboard Cards --- */
+.stat-card {
+  background: #ffffff; /* Card background white rakhein */
+  color: #1e293b; /* Text color dark rakhein */
+  border-radius: 24px; /* Zyada rounded corners premium lagte hain */
+  padding: 24px;
+  border: none;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05); /* Soft professional shadow */
+  display: flex;
+  align-items: center;
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+  height: 100%;
+}
+
+.stat-card:hover {
+  transform: translateY(-5px); /* Hover par halka sa upar uthega */
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
+  
+  background: linear-gradient(145deg, #ffffff, #f8fafc); /* Halki si gradient shine */
+}
+
+.icon-box {
+  width: 58px;
+  height: 58px;
+  min-width: 58px; /* Square shape barqarar rakhne ke liye */
+  border-radius: 18px; /* Modern rounded square */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 22px;
+  margin-right: 18px;
+  z-index: 2;
+  transition: transform 0.3s ease;
+}
+
+.stat-card:hover .icon-box {
+  transform: scale(1.1); /* Hover par icon thoda bada hoga */
+}
+
+/* --- Base Shape Style --- */
+.stat-card::after {
+  content: "";
+  position: absolute;
+  bottom: -20px;
+  right: -20px;
+  width: 100px;
+  height: 100px;
+  background: currentColor; /* Ye icon ke color ko pick kar lega */
+  opacity: 0.05;
+  border-radius: 50%;
+  z-index: 1;
+  transition: all 0.5s ease; /* Smooth movement ke liye */
+}
+
+/* --- Shape Hover Effect --- */
+.stat-card:hover::after {
+  transform: scale(1.2); /* Shape bari ho jayegi */
+  opacity: 0.08;        /* Thodi zyada wazay ho jayegi */
+  bottom: -18px;           /* Position thodi adjust hogi */
+  right: -18px;
+}
+
+
 
 .action-card {
   background: var(--primary);
@@ -415,23 +512,7 @@ body.ready #main-wrapper {
   box-shadow: 0 15px 30px rgba(30, 60, 148, 0.1);
 }
 
-.yellow-btn-card {
-  background: linear-gradient(135deg, #ffed00 0%, #ffd700 100%);
-  border-radius: 15px;
-  padding: 25px;
-  font-weight: 700;
-  color: #222;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  cursor: pointer;
-  transition: 0.3s;
-  box-shadow: 0 8px 15px rgba(255, 215, 0, 0.2);
-}
-.yellow-btn-card:hover {
-  transform: scale(1.03);
-  box-shadow: 0 12px 25px rgba(255, 215, 0, 0.3);
-}
+
 
 .vms-service-card {
   background: var(--primary);
@@ -567,87 +648,99 @@ body.ready #main-wrapper {
 }
 
 /* --- Desktop & Tablet (Perfect Column Alignment) --- */
-@media (min-width: 768px) {
-    .scrollable-tbody {
-        display: flex;
-        flex-direction: column;
-        border-collapse: collapse;
-        width: 100%;
-    }
+@media (min-width: 992px) {
+  .scrollable-tbody {
+    display: flex;
+    flex-direction: column;
+    border-collapse: collapse;
+    width: 100%;
+  }
 
-    /* thead aur tr ko grid banayein takay columns sync rahein */
-    .scrollable-tbody thead tr,
-    .scrollable-tbody tbody tr {
-        display: grid;
-        /* Columns ki tadad ke hisaab se adjust karein (e.g., 5 columns) */
-        grid-template-columns: repeat(auto-fit, minmax(100px, 1fr)); 
-        width: 100%;
-    }
+  /* thead aur tr ko grid banayein takay columns sync rahein */
+  .scrollable-tbody thead tr,
+  .scrollable-tbody tbody tr {
+    display: grid;
+    /* Columns ki tadad ke hisaab se adjust karein (e.g., 5 columns) */
+    grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+    width: 100%;
+  }
 
-    .scrollable-tbody thead {
-        position: sticky;
-        top: 0;
-        z-index: 10;
-        background-color: #f8f9fa;
-        display: block;
-    }
+  .scrollable-tbody thead {
+    position: sticky;
+    top: 0;
+    z-index: 10;
+    background-color: #f8f9fa;
+    display: table; /* Block ki jagah table use karein taake width sahi rahe */
+    width: 100%;
+    table-layout: fixed;
+  }
 
-    .scrollable-tbody tbody {
-        display: block;
-        max-height: 145px; /* Aapki required height */
-        overflow-y: auto !important;
-        width: 100%;
-    }
+  .scrollable-tbody thead th {
+    margin: auto 0;
+    border-bottom: none;
+  }
 
-    .scrollable-tbody th, 
-    .scrollable-tbody td {
-        padding: 12px;
-        text-align: left;
-        border-bottom: 1px solid #dee2e6;
-        overflow: hidden;
-        text-overflow: ellipsis;
-        white-space: nowrap;
-    }
+  .scrollable-tbody tbody {
+    display: block;
+    max-height: 140px; /* Aapki required height */
+    overflow-y: auto !important;
+    width: 100%;
+  }
+
+  .scrollable-tbody th,
+  .scrollable-tbody td {
+    padding: 6px 12px;
+    text-align: left;
+    border-bottom: 1px solid #dee2e6;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
 }
 
 /* --- Mobile (768px se niche) --- */
-@media (max-width: 767.98px) {
-    .scrollable-tbody {
-        display: table !important; /* Mobile par wapis normal table */
-        width: 100% !important;
-    }
+@media (max-width: 991.98px) {
+  .scrollable-tbody {
+    display: table !important; /* Mobile par wapis normal table */
+    width: 100% !important;
+  }
 
-    .scrollable-tbody thead {
-        display: table-header-group !important;
-    }
+  .scrollable-tbody thead {
+    display: table-header-group !important;
+  }
 
-    .scrollable-tbody tbody {
-        display: table-row-group !important;
-        max-height: none !important;
-    }
+  .scrollable-tbody tbody {
+    display: table-row-group !important;
+    max-height: none !important;
+  }
 
-    .scrollable-tbody tr {
-        display: table-row !important;
-    }
+  .scrollable-tbody tr {
+    display: table-row !important;
+  }
 
-    .scrollable-tbody th, 
-    .scrollable-tbody td {
-        display: table-cell !important;
-        white-space: nowrap !important;
-        padding: 10px 15px !important;
-        min-width: 130px; /* Mobile scroll trigger karne ke liye */
-    }
+  .scrollable-tbody th,
+  .scrollable-tbody td {
+    display: table-cell !important;
+    white-space: nowrap !important;
+    padding: 10px 15px !important;
+    min-width: 130px; /* Mobile scroll trigger karne ke liye */
+  }
+
+  div.table-responsive
+    > div.dataTables_wrapper
+    > div.row
+    > div[class^="col-"]:first-child {
+    margin-bottom: 15px !important;
+  }
 }
 
 /* --- Scrollbar Customization --- */
 .scrollable-tbody tbody::-webkit-scrollbar {
-    width: 5px;
+  width: 5px;
 }
 .scrollable-tbody tbody::-webkit-scrollbar-thumb {
-    background: #cbd5e0;
-    border-radius: 10px;
+  background: #cbd5e0;
+  border-radius: 10px;
 }
-
 
 .hidden {
   display: none;
@@ -729,4 +822,54 @@ body.ready #main-wrapper {
 .dropdown-item:hover {
   background-color: #f8f9fa;
   color: var(--primary);
+}
+
+
+
+/* Image par hover effect */
+img[data-bs-toggle="modal"]:hover {
+    transform: scale(1.02);
+    transition: transform 0.3s ease;
+}
+
+
+
+#imagePreviewModal .img-fluid {
+    max-height: 85vh; /* Screen se bahar na jaye */
+    width: auto;
+}
+
+
+/* Vehicle Managment Timeline Styles */
+.timeline-wrapper {
+    position: relative;
+    padding-left: 5px;
+}
+
+.icon-sm {
+    width: 32px;
+    height: 32px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 14px;
+}
+
+.extra-small {
+    font-size: 0.75rem;
+}
+
+/* Connecting Line */
+.activity-line {
+    position: absolute;
+    left: 15px;
+    top: 35px;
+    bottom: -15px;
+    width: 2px;
+    background-color: #f1f5f9;
+    z-index: 0;
+}
+
+.z-index-1 {
+    z-index: 1;
 }

@@ -27,9 +27,7 @@ include("header_meta.php");
         <div class="row align-items-center mb-3">
           <div class="col-md-8">
             <h2 class="fw-bold text-dark tracking-tight mb-1">Dashboard</h2>
-
           </div>
-
         </div>
 
         <div class="row g-4 mb-5">
@@ -201,6 +199,7 @@ include("header_meta.php");
                   <canvas id="statusChart"></canvas>
                 </div>
               </div>
+              
             </div>
           </div>
         </div>
@@ -215,7 +214,7 @@ include("header_meta.php");
                     <p class="text-muted small mb-0">Daily fleet movement tracking</p>
                 </div>
                 <div class="mt-3 mt-sm-0">
-                    <a href="#" class="btn btn-outline-primary btn-sm rounded-pill px-3 fw-bold border-2">
+                    <a href="#" class="btn secondary-color btn-sm rounded-pill px-3 fw-bold border-2">
                         View All <i class="fas fa-external-link-alt ms-1 small"></i>
                     </a>
                 </div>
@@ -263,7 +262,7 @@ include("header_meta.php");
                                 <td class="ps-4">
                                     <div class="d-flex align-items-center">
                                         <div class="flex-shrink-0 bg-danger-subtle text-danger rounded-3 p-2 me-3">
-                                            <i class="fas fa-engine-warning fa-lg"></i>
+                                            <i class="fas fa-car-burst fa-lg"></i>
                                         </div>
                                         <div>
                                             <div class="fw-bold text-dark mb-0">VH-452</div>
@@ -297,7 +296,7 @@ include("header_meta.php");
         <div class="card border-0 shadow-sm rounded-5 bg-white h-100 p-2">
             <div class="card-body p-4">
                 <h5 class="fw-bold mb-4 d-flex align-items-center">
-                    <span class="p-2 bg-primary rounded-3 me-3 text-white">
+                    <span class="p-2 secondary-color rounded-3 me-3 text-white">
                         <i class="fas fa-radar fa-xs"></i>
                     </span>
                     Monitoring

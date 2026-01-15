@@ -7,8 +7,8 @@ if (!isset($_SESSION['user'])) {
 ?>
 
 <?php
-  include("../header_meta.php");
-  ?>
+include("../header_meta.php");
+?>
 
 <div id="dashboard-page">
 
@@ -96,24 +96,21 @@ if (!isset($_SESSION['user'])) {
             <table id="maintenanceLogTable" class="table table-hover align-middle w-100 scrollable-tbody">
               <thead class="table-light">
                 <tr>
-                  <th>Vehicle Plate Number</th>
-                  <th>Odometer Mileage</th>
+                  <th>Service Record No</th>
+                  <th>Vehicle Plate No</th>
+                  <th>Odometer Reading</th>
                   <th>Parts Replaced</th>
-                  <th>Service Type</th>
-
-                  <th>Accident History</th>
+                  <th>Next Service Due</th>
                   <th class="text-center">Actions</th>
                 </tr>
               </thead>
               <tbody>
                 <tr>
+                  <td>SR-99821</td>
                   <td>VH-789 (ABC-123)</td>
                   <td>85,250 km</td>
                   <td>Oil Filter</td>
-                  <td>Repair</td>
-
-                  <td>
-                    Minor Bump</td>
+                  <td>95,000 km or 05-July-2026</td>
                   <td class="text-center">
                     <a class="btn btn-sm btn-light border shadow-sm" href="./service-form.php">
                       <i class="fas fa-eye text-primary"></i>
@@ -121,57 +118,49 @@ if (!isset($_SESSION['user'])) {
                   </td>
                 </tr>
 
-               <tr>
+                <tr>
+                  <td>SR-99821</td>
                   <td>VH-789 (ABC-123)</td>
                   <td>85,250 km</td>
-                  <td>Oil Filter</td>
-                  <td>Repair</td>
-
-                  <td>
-                    Minor Bump</td>
+                  <td>Brake Pads</td>
+                  <td>95,000 km or 05-July-2026</td>
                   <td class="text-center">
                     <a class="btn btn-sm btn-light border shadow-sm" href="./service-form.php">
                       <i class="fas fa-eye text-primary"></i>
                     </a>
                   </td>
                 </tr>
-                 <tr>
+                <tr>
+                  <td>SR-99821</td>
                   <td>VH-789 (ABC-123)</td>
                   <td>85,250 km</td>
                   <td>Oil Filter</td>
-                  <td>Repair</td>
-
-                  <td>
-                    Minor Bump</td>
+                  <td>95,000 km or 05-July-2026</td>
                   <td class="text-center">
                     <a class="btn btn-sm btn-light border shadow-sm" href="./service-form.php">
                       <i class="fas fa-eye text-primary"></i>
                     </a>
                   </td>
                 </tr>
-                 <tr>
+                <tr>
+                  <td>SR-99821</td>
                   <td>VH-789 (ABC-123)</td>
                   <td>85,250 km</td>
-                  <td>Oil Filter</td>
-                  <td>Repair</td>
-
-                  <td>
-                    Minor Bump</td>
+                  <td> Brake Pads</td>
+                  <td>95,000 km or 05-July-2026</td>
                   <td class="text-center">
                     <a class="btn btn-sm btn-light border shadow-sm" href="./service-form.php">
                       <i class="fas fa-eye text-primary"></i>
                     </a>
                   </td>
                 </tr>
-                 <tr>
+                <tr>
+                  <td>SR-99821</td>
                   <td>VH-789 (ABC-123)</td>
                   <td>85,250 km</td>
                   <td>Oil Filter</td>
-                  <td>Repair</td>
-
-                  <td>
-                    Minor Bump</td>
-                  <td  class="text-center">
+                  <td>95,000 km or 05-July-2026</td>
+                  <td class="text-center">
                     <a class="btn btn-sm btn-light border shadow-sm" href="./service-form.php">
                       <i class="fas fa-eye text-primary"></i>
                     </a>

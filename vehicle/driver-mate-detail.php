@@ -106,8 +106,8 @@ if (!isset($_SESSION['user'])) {
                                 <tr>
                                     <th>Full Name</th>
                                     <th>National ID</th>
-                                    <th>Emergency Contact Name</th>
-                                    <th>Vehicle / Plate Number</th>
+                                    <th>Address</th>
+                                    <th>Phone Number</th>
                                     <th class="text-center">Action</th>
                                 </tr>
                             </thead>
@@ -115,8 +115,8 @@ if (!isset($_SESSION['user'])) {
                                 <tr>
                                     <td class="fw-bold text-primary">John Doe</td>
                                     <td>42101-9876543-1</td>
-                                    <td>Jane Doe</td>
-                                    <td>VH-789 (ABC-123)</td>
+                                    <td>Islamabad</td>
+                                    <td>+923451234567</td>
                                     <td class="text-center">
                                         <a href="./driver-mate-form.php"
                                             class="btn btn-sm btn-light border shadow-sm">
@@ -127,8 +127,20 @@ if (!isset($_SESSION['user'])) {
                                  <tr>
                                     <td class="fw-bold text-primary">John Doe</td>
                                     <td>42101-9876543-1</td>
-                                    <td>Jane Doe</td>
-                                    <td>VH-789 (ABC-123)</td>
+                                    <td>Islamabad</td>
+                                     <td>+923451234567</td>
+                                    <td class="text-center">
+                                        <a href="./driver-mate-form.php"
+                                            class="btn btn-sm btn-light border shadow-sm">
+                                            <i class="fas fa-eye text-primary"></i>
+                                        </a>
+                                    </td>
+                                </tr>
+                                 <tr>
+                                    <td class="fw-bold text-primary">John Doe</td>
+                                    <td>42101-9876543-1</td>                                  
+                                    <td>Islamabad</td>
+                                     <td>+923451234567</td>
                                     <td class="text-center">
                                         <a href="./driver-mate-form.php"
                                             class="btn btn-sm btn-light border shadow-sm">
@@ -139,20 +151,8 @@ if (!isset($_SESSION['user'])) {
                                  <tr>
                                     <td class="fw-bold text-primary">John Doe</td>
                                     <td>42101-9876543-1</td>
-                                    <td>Jane Doe</td>
-                                    <td>VH-789 (ABC-123)</td>
-                                    <td class="text-center">
-                                        <a href="./driver-mate-form.php"
-                                            class="btn btn-sm btn-light border shadow-sm">
-                                            <i class="fas fa-eye text-primary"></i>
-                                        </a>
-                                    </td>
-                                </tr>
-                                 <tr>
-                                    <td class="fw-bold text-primary">John Doe</td>
-                                    <td>42101-9876543-1</td>
-                                    <td>Jane Doe</td>
-                                    <td>VH-789 (ABC-123)</td>
+                                    <td>Islamabad</td>
+                                    <td>+923451234567</td>
                                     <td class="text-center">
                                         <a href="./driver-mate-form.php"
                                             class="btn btn-sm btn-light border shadow-sm">

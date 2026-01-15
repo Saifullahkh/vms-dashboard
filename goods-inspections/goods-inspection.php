@@ -7,8 +7,8 @@ if (!isset($_SESSION['user'])) {
 ?>
 
 <?php
-  include("../header_meta.php");
-  ?>
+include("../header_meta.php");
+?>
 
 <div id="dashboard-page">
 
@@ -97,9 +97,9 @@ if (!isset($_SESSION['user'])) {
                             <tr>
                                 <th>Fleet No</th>
                                 <th>Route</th>
-                                <th>Qty (D/O)</th>
+                                <th>Quantity (Declared / Observed)</th>
                                 <th>Cargo Secured</th>
-                                <th>Inspection</th>
+                                <th>Inspection Status</th>
                                 <th class="text-center">Action</th>
                             </tr>
                         </thead>

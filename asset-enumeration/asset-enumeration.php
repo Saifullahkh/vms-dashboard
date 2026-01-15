@@ -23,7 +23,7 @@ if (!isset($_SESSION['user'])) {
         ?>
         <div id="asset-enumeration" class="px-4 px-md-5 py-4">
             <div class="d-md-flex justify-content-between align-items-center mb-4">
-                <div class="d-flex align-items-center">
+                <div class="d-flex align-items-center mb-md-0 mb-3">
                     <a class="btn secondary-hover rounded-circle me-3" href="../index.php" title="Back"
                         style="width: 40px; height: 40px; display: flex; align-items: center; justify-content: center;">
                         <i class="fas fa-arrow-left"></i>
