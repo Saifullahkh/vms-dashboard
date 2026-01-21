@@ -1,6 +1,23 @@
 <?php
+// Auto-detect base URL for both local and live
+$script_name = $_SERVER['SCRIPT_NAME'];
+
+// Check if we're in the MD/SK/VMS structure
+if (strpos($script_name, '/MD/SK/VMS/') !== false) {
+    $base_url = '/MD/SK/VMS/';
+} elseif (strpos($script_name, '/VMS/') !== false) {
+    $base_url = '/VMS/';
+} else {
+    // Fallback: Calculate from current directory
+    $dir = dirname($script_name);
+    $base_url = ($dir === '/') ? '/' : $dir . '/';
+}
+
 define('BASE_URL', '/vms-frontend/');
 define('CURRENT_PAGE', basename($_SERVER['PHP_SELF']));
+
+// Debug (comment out in production)
+// echo "<script>console.log('BASE_URL:', '" . BASE_URL . "');</script>";
 ?>
 
 <div id="sidebar">
