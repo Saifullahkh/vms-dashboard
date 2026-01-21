@@ -193,9 +193,12 @@ include("../header_meta.php");
                                     </button>
                                 </div>
                             </div>
-                            <div style="height: 320px; width: 100%;">
-                                <canvas id="performanceLineChart"></canvas>
-                            </div>
+                           <div  >
+    <img src="../img/fleet.png" 
+         alt="Fleet Performance Metrics"
+         class="img-fluid rounded-3 h-100 w-100"
+         style="object-fit: contain; background: #f8fafc;">
+</div>
                         </div>
                     </div>
                 </div>
@@ -209,14 +212,11 @@ include("../header_meta.php");
                             </div>
 
                             <div style="height: 250px; position: relative;" class="my-4">
-                                <canvas id="statusDonutChart"></canvas>
-                                <div
-                                    style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); text-align: center;">
-                                    <span class="d-block text-muted small fw-bold text-uppercase"
-                                        style="letter-spacing: 1px;">Fleet</span>
-                                    <h2 class="fw-bolder mb-0 text-dark">142</h2>
-                                    <span class="badge bg-primary rounded-pill small">Units</span>
-                                </div>
+                                <img src="../img/fleet3.png" 
+         alt="Fleet Performance Metrics"
+         class="img-fluid rounded-3 h-100 w-100"
+         style="object-fit: contain; background: #f8fafc;">
+                               
                             </div>
 
                             <div class="mt-4 pt-2 border-top">
