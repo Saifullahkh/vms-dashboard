@@ -89,7 +89,7 @@ if (!isset($_SESSION['user'])) {
                 <div class="bg-white rounded-4 p-2 shadow-sm border">
                     <div class="table-responsive p-2">
                         <table id="breakdownTable" class="table table-hover align-middle w-100 scrollable-tbody">
-                            <thead class="table-light text-muted small text-uppercase">
+                            <thead class="table-light">
                                 <tr>
                                     <th>Vehicle ID</th>
                                     <th>Driver Name</th>
@@ -257,16 +257,6 @@ if (!isset($_SESSION['user'])) {
                         <input type="text" class="form-control border-dark shadow-sm" value="Muhammad Ahmed" />
                     </div>
 
-                    <div class="col-md-12">
-                        <label class="small fw-bold mb-1">Location</label>
-                        <div class="input-group">
-                            <span class="input-group-text border-dark bg-white"><i
-                                    class="fas fa-map-marker-alt"></i></span>
-                            <input type="text" class="form-control border-dark shadow-sm"
-                                value="M-5 Motorway (Near Sukkur)" />
-                        </div>
-                    </div>
-
                     <div class="col-md-6">
                         <label class="small fw-bold mb-1">Breakdown Type</label>
                         <select class="form-select border-dark shadow-sm">
@@ -286,6 +276,16 @@ if (!isset($_SESSION['user'])) {
                         <label class="small fw-bold mb-1">Action Taken</label>
                         <input type="text" class="form-control border-dark shadow-sm"
                             value="Recovery Vehicle Dispatched" />
+                    </div>
+
+                     <div class="col-md-12">
+                        <label class="small fw-bold mb-1">Location</label>
+                        <div class="input-group">
+                            <span class="input-group-text border-dark bg-white"><i
+                                    class="fas fa-map-marker-alt"></i></span>
+                            <input type="text" class="form-control border-dark shadow-sm"
+                                value="M-5 Motorway (Near Sukkur)" />
+                        </div>
                     </div>
 
                     <div class="col-12 text-center mt-4">

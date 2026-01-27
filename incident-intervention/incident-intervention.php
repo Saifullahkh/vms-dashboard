@@ -32,11 +32,11 @@ include("../header_meta.php");
                     <h2 class="fw-bold  tracking-tight mb-1">Incident & Intervention</h2>
                 </div>
 
-                <div class="col-md-5 col-xl-3">
+                <div class="col-8 col-md-5 col-xl-3">
                     <div class="d-flex justify-content-md-end mt-3 mt-md-0">
 
                         <div class="input-group shadow-sm border rounded-3">
-                            <select class="form-select border-0 py-2  small " 
+                            <select class="form-select border-0 py-2  small "
                                 style="cursor: pointer; outline: none; box-shadow: none; background-color: #ffffff;">
                                 <option value="24h">Last 24 hours</option>
                                 <option value="7d" selected>Last 7 days</option>
@@ -240,11 +240,19 @@ include("../header_meta.php");
                                     <h5 class="fw-bold mb-1">Incident Analysis</h5>
                                     <p class="text-muted small mb-0">Monthly breakdown of reported issues</p>
                                 </div>
-                                <div class="dropdown">
-                                    <button class="btn btn-light btn-sm rounded-pill px-3 border shadow-none"
-                                        type="button">
-                                        Year 2026 <i class="fas fa-filter ms-1 small"></i>
-                                    </button>
+                                <div class="position-relative" style="min-width: 140px;">
+                                    <i class="fas fa-calendar-alt text-primary position-absolute top-50 start-0 translate-middle-y ms-3 extra-small"
+                                        style="z-index: 5;"></i>
+
+                                    <select
+                                        class="form-select form-select-sm rounded-pill border shadow-sm ps-4 ms-2 fw-bold text-dark cursor-pointer"
+                                        id="yearSelect"
+                                        style="padding-top: 0.4rem; padding-bottom: 0.4rem; font-size: 0.85rem;">
+                                        <option value="2026" selected>Year 2026</option>
+                                        <option value="2025">Year 2025</option>
+                                        <option value="2024">Year 2024</option>
+                                        <option value="all">All Time</option>
+                                    </select>
                                 </div>
                             </div>
                             <div style="height: 320px;">

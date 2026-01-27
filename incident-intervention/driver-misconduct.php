@@ -98,7 +98,7 @@ include("../header_meta.php");
       <div class="bg-white rounded-4 p-2 shadow-sm border">
         <div class="table-responsive p-2">
           <table id="recoveryStabilityTable" class="table table-hover align-middle w-100 scrollable-tbody">
-            <thead class="table-light text-secondary small text-uppercase">
+            <thead class="table-light">
               <tr>
                 <th>Vehicle No</th>
                 <th>Driver Name</th>
@@ -187,7 +187,7 @@ include("../header_meta.php");
 
           <div class="col-md-6">
             <label class="small fw-bold mb-1">Date</label>
-            <input type="text" class="form-control border-dark shadow-sm" value="22 Dec 2025 | 11:30 AM" />
+            <input type="date" class="form-control border-dark shadow-sm" value="22 Dec 2025" />
           </div>
 
           <div class="col-md-6">

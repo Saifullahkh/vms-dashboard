@@ -268,7 +268,7 @@ if (!isset($_SESSION['user'])) {
 
           <div class="col-md-6">
             <label class="small fw-bold mb-1">Next Service Due</label>
-            <input type="text" class="form-control border-dark shadow-sm" value="15 Mar 2024" />
+            <input type="date" class="form-control border-dark shadow-sm" value="15 Mar 2024" />
           </div>
 
           <div class="col-md-6">
@@ -288,7 +288,7 @@ if (!isset($_SESSION['user'])) {
 
           <div class="col-12 text-center mt-4">
             <button type="button" class="btn secondary-color px-5 py-2 rounded-pill fw-bold shadow">
-              Submite Vehicle Profile
+              Submite Vehicle Record
             </button>
           </div>
         </form>

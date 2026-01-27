@@ -87,7 +87,7 @@ if (!isset($_SESSION['user'])) {
       <div class="bg-white rounded-4 p-2 shadow-sm border">
         <div class="table-responsive p-2">
           <table id="recoveryTable" class="table table-hover align-middle w-100 scrollable-tbody">
-            <thead class="table-light text-secondary small text-uppercase">
+            <thead class="table-light">
               <tr>
                
                 <th>Vehicle</th>

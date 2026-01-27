@@ -221,7 +221,7 @@ include("../header_meta.php");
 
           <div class="col-md-6">
             <label class="small fw-bold mb-1">Date Employed</label>
-            <input type="text" class="form-control border-dark shadow-sm" value="01-Jan-2022" />
+            <input type="date" class="form-control border-dark shadow-sm" value="01-Jan-2022" />
           </div>
 
           <div class="col-md-6">

@@ -205,7 +205,7 @@ include("../header_meta.php");
 
                         <div class="col-md-6">
                             <label class="small fw-bold mb-1">Date of Trip</label>
-                            <input type="text" class="form-control border-dark shadow-sm" value="05-Jan-2026" />
+                            <input type="date" class="form-control border-dark shadow-sm" value="05-Jan-2026" />
                         </div>
 
                         <div class="col-md-6">
@@ -304,7 +304,7 @@ include("../header_meta.php");
 
                         <div class="col-md-6">
                             <label class="small fw-bold mb-1">Expected Date of Arrival</label>
-                            <input type="text" class="form-control border-dark shadow-sm" value="07-Jan-2026" />
+                            <input type="date" class="form-control border-dark shadow-sm" value="07-Jan-2026" />
                         </div>
 
                         <div class="col-12 text-center mt-4">
