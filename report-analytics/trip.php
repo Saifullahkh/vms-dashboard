@@ -101,10 +101,10 @@ include("../header_meta.php");
                             <div class="card-body p-3">
                                 <div class="table-responsive">
                                     <table
-                                        class="table table-hover align-middle text-center mb-0 global-datatable scrollable-tbody">
-                                        <thead class="bg-light">
-                                            <tr class="bg-light fw-bold small"
-                                                style="letter-spacing: 0.5px;">
+                                        class="table table-hover align-middle mb-0 global-datatable scrollable-tbody">
+                                        <thead class="table-light">
+                                            <tr class=""
+                                                >
                                                 <th class="ps-4">Trip Identity</th>
                                                 <th>Driver / Mate Info</th>
                                                 <th>Timing</th>
@@ -118,7 +118,7 @@ include("../header_meta.php");
                                                 <td class="ps-4">
                                                      <span class="small fw-semibold text-primary">KHI <i
                                                             class="fas fa-arrow-right mx-1"></i>
-                                                        LHR</span>
+                                                        LHR</span><br>
                                                     <span
                                                         class="badge bg-primary-subtle text-primary extra-small fw-normal mt-1">Waybill:
                                                         #WB-7822</span>
@@ -169,7 +169,7 @@ include("../header_meta.php");
                                                 <td class="ps-4">
                                                      <span class="small fw-semibold text-primary">KHI <i
                                                             class="fas fa-arrow-right mx-1"></i>
-                                                        LHR</span>
+                                                        LHR</span><br>
                                                     <span
                                                         class="badge bg-primary-subtle text-primary extra-small fw-normal mt-1">Waybill:
                                                         #WB-7822</span>
@@ -220,7 +220,7 @@ include("../header_meta.php");
                                                 <td class="ps-4">
                                                      <span class="small fw-semibold text-primary">KHI <i
                                                             class="fas fa-arrow-right mx-1"></i>
-                                                        LHR</span>
+                                                        LHR</span><br>
                                                     <span
                                                         class="badge bg-primary-subtle text-primary extra-small fw-normal mt-1">Waybill:
                                                         #WB-7822</span>
@@ -271,7 +271,7 @@ include("../header_meta.php");
                                                 <td class="ps-4">
                                                     <span class="small fw-semibold text-primary">KHI <i
                                                             class="fas fa-arrow-right mx-1"></i>
-                                                        LHR</span>
+                                                        LHR</span><br>
                                                     <span
                                                         class="badge bg-primary-subtle text-primary extra-small fw-normal mt-1">Waybill:
                                                         #WB-7822</span>

@@ -103,7 +103,7 @@ if (!isset($_SESSION['user'])) {
                                 <div class="table-responsive">
                                     <table
                                         class="table table-hover  align-middle mb-0 global-datatable scrollable-tbody">
-                                        <thead class="bg-light small fw-bold">
+                                        <thead class="table-light ">
                                             <tr>
                                                 <th class="ps-4">Vehicle Type / Picture</th>
                                                 <th>Compliance / License</th>

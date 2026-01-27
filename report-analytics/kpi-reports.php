@@ -100,10 +100,10 @@ if (!isset($_SESSION['user'])) {
                         <div class="card border-0">
 
                             <div class="card-body p-3">
-                                <div class="table-responsive">
+                                <div class="table-responsive overflow-hidden">
                                     <table
                                         class="table table-hover align-middle mb-0 global-datatable scrollable-tbody">
-                                        <thead class="bg-light small fw-bold text-center">
+                                        <thead class="table-light ">
                                             <tr>
                                                 <th>Layer 2 Category</th>
                                                 <th>Unauthorized Cargo</th>
@@ -121,18 +121,18 @@ if (!isset($_SESSION['user'])) {
                                                 </td>
                                                 <td>
                                                     <div class="badge bg-danger-subtle text-danger border p-2">
-                                                        Electronic Scrap Detected
+                                                        Electronic Detected
                                                     </div>
                                                 </td>
                                                 <td class="small">
                                                     <strong>Loc:</strong> Warehouse<br>
                                                     <strong>By:</strong> Team A
                                                 </td>
-                                                <td class="text-center">
+                                                <td class="">
                                                     <div class="fw-bold">PKR 45,000</div>
                                                     <small class="text-muted">Related Cost</small>
                                                 </td>
-                                                <td class="text-center">
+                                                <td class="">
                                                     <span class="badge bg-success"><i class="fas fa-check me-1"></i>
                                                         Confirmed</span>
                                                 </td>
@@ -151,18 +151,18 @@ if (!isset($_SESSION['user'])) {
                                                 </td>
                                                 <td>
                                                     <div class="badge bg-danger-subtle text-danger border p-2">
-                                                        Electronic Scrap Detected
+                                                        Illegal Items
                                                     </div>
                                                 </td>
                                                 <td class="small">
                                                     <strong>Loc:</strong> Warehouse<br>
                                                     <strong>By:</strong> Team A
                                                 </td>
-                                                <td class="text-center">
+                                                <td class="">
                                                     <div class="fw-bold">PKR 45,000</div>
                                                     <small class="text-muted">Related Cost</small>
                                                 </td>
-                                                <td class="text-center">
+                                                <td class="">
                                                     <span class="badge bg-success"><i class="fas fa-check me-1"></i>
                                                         Confirmed</span>
                                                 </td>
@@ -181,18 +181,18 @@ if (!isset($_SESSION['user'])) {
                                                 </td>
                                                 <td>
                                                     <div class="badge bg-danger-subtle text-danger border p-2">
-                                                        Electronic Scrap Detected
+                                                        Electronic Detected
                                                     </div>
                                                 </td>
                                                 <td class="small">
                                                     <strong>Loc:</strong> Warehouse<br>
                                                     <strong>By:</strong> Team A
                                                 </td>
-                                                <td class="text-center">
+                                                <td class="">
                                                     <div class="fw-bold">PKR 45,000</div>
                                                     <small class="text-muted">Related Cost</small>
                                                 </td>
-                                                <td class="text-center">
+                                                <td class="">
                                                     <span class="badge bg-success"><i class="fas fa-check me-1"></i>
                                                         Confirmed</span>
                                                 </td>
@@ -211,18 +211,18 @@ if (!isset($_SESSION['user'])) {
                                                 </td>
                                                 <td>
                                                     <div class="badge bg-danger-subtle text-danger border p-2">
-                                                        Electronic Scrap Detected
+                                                        Illegal Items
                                                     </div>
                                                 </td>
                                                 <td class="small">
                                                     <strong>Loc:</strong> Warehouse<br>
                                                     <strong>By:</strong> Team A
                                                 </td>
-                                                <td class="text-center">
+                                                <td class="">
                                                     <div class="fw-bold">PKR 45,000</div>
                                                     <small class="text-muted">Related Cost</small>
                                                 </td>
-                                                <td class="text-center">
+                                                <td class="">
                                                     <span class="badge bg-success"><i class="fas fa-check me-1"></i>
                                                         Confirmed</span>
                                                 </td>

@@ -29,7 +29,7 @@ include("header_meta.php");
             <h2 class="fw-bold  tracking-tight mb-1">Dashboard</h2>
           </div>
 
-          <div class="col-md-5 col-xl-3">
+          <div class="col-8 col-md-5 col-xl-3">
             <div class="d-flex justify-content-md-end mt-3 mt-md-0">
 
               <div class="input-group shadow-sm border rounded-3">
@@ -215,83 +215,86 @@ include("header_meta.php");
                 <p class="text-muted small mb-0">Daily fleet movement tracking</p>
               </div>
               <div class="mt-3 mt-sm-0">
-                <a href="#" class="btn secondary-color btn-sm rounded-pill px-3 fw-bold border-2">
+                <a href="#" class="btn secondary-color btn-sm rounded-pill px-3  ">
                   View All <i class="fas fa-external-link-alt ms-1 small"></i>
                 </a>
               </div>
             </div>
-            <div class="card-body p-0">
-              <div class="table-responsive">
-                <table class="table table-hover align-middle mb-0">
-                  <thead class="bg-light text-secondary small text-uppercase fw-bold">
+           
+    <div class="card-body p-0">
+        <div class="table-responsive overflow-auto">
+            <table class="table table-hover align-middle mb-0 text-nowrap">
+                <thead class="bg-light text-secondary small text-uppercase fw-bold">
                     <tr>
-                      <th class="ps-4 border-0 py-3">Vehicle & Driver</th>
-                      <th class="border-0 py-3">Event</th>
-                      <th class="border-0 py-3">Timeline</th>
-                      <th class="pe-4 border-0 py-3 text-end">Status</th>
+                        <th class="ps-4 border-0 py-3" style="min-width: 200px;">Vehicle & Driver</th>
+                        <th class="border-0 py-3" style="min-width: 150px;">Event</th>
+                        <th class="border-0 py-3" style="min-width: 180px;">Timeline</th>
+                        <th class="pe-4 border-0 py-3 text-end">Status</th>
                     </tr>
-                  </thead>
-                  <tbody class="border-top-0">
+                </thead>
+                <tbody class="border-top-0">
                     <tr>
-                      <td class="ps-4">
-                        <div class="d-flex align-items-center">
-                          <div class="flex-shrink-0 bg-primary-subtle text-primary rounded-3 p-2 me-3">
-                            <i class="fas fa-truck-pickup fa-lg"></i>
+                        <td class="ps-4">
+                            <div class="d-flex align-items-center">
+                                <div class="flex-shrink-0 bg-primary-subtle text-primary rounded-3 p-2 me-3">
+                                    <i class="fas fa-truck-pickup fa-lg"></i>
+                                </div>
+                                <div>
+                                    <div class="fw-bold text-dark mb-0">VH-789</div>
+                                    <div class="text-muted x-small">Zaid Ali</div>
+                                </div>
+                            </div>
+                        </td>
+                        <td>
+                            <span class="badge bg-info-subtle text-info rounded-pill px-3 py-2 fw-semibold">
+                                <i class="fas fa-clipboard-check me-1"></i> Inspection
+                            </span>
+                        </td>
+                        <td>
+                            <div class="small fw-bold text-dark">10 mins ago</div>
+                            <div class="text-muted x-small"><i class="fas fa-map-marker-alt me-1"></i> Hub - Gate 2</div>
+                        </td>
+                       <td class="text-center ">
+                          <div class="status-icon bg-success-subtle text-success mx-auto d-flex align-items-center justify-content-center rounded-circle" 
+                              style="width: 35px; height: 35px;">
+                              <i class="fas fa-check"></i>
                           </div>
-                          <div>
-                            <div class="fw-bold text-dark mb-0">VH-789</div>
-                            <div class="text-muted x-small">Zaid Ali</div>
-                          </div>
-                        </div>
-                      </td>
-                      <td>
-                        <span class="badge bg-info-subtle text-info rounded-pill px-3 py-2 fw-semibold">
-                          Inspection
-                        </span>
-                      </td>
-                      <td>
-                        <div class="small fw-bold text-dark">10 mins ago</div>
-                        <div class="text-muted x-small">Hub - Gate 2</div>
-                      </td>
-                      <td class="pe-4 text-end">
-                        <div class="p-2 bg-success-subtle text-success d-inline-block rounded-circle"
-                          style="width: 32px; height: 32px; line-height: 16px;">
-                          <i class="fas fa-check small"></i>
-                        </div>
-                      </td>
-                    </tr>
-                    <tr>
-                      <td class="ps-4">
-                        <div class="d-flex align-items-center">
-                          <div class="flex-shrink-0 bg-danger-subtle text-danger rounded-3 p-2 me-3">
-                            <i class="fas fa-car-burst fa-lg"></i>
-                          </div>
-                          <div>
-                            <div class="fw-bold text-dark mb-0">VH-452</div>
-                            <div class="text-muted x-small">M. Usman</div>
-                          </div>
-                        </div>
-                      </td>
-                      <td>
-                        <span class="badge bg-danger-subtle text-danger rounded-pill px-3 py-2 fw-semibold">
-                          Breakdown
-                        </span>
-                      </td>
-                      <td>
-                        <div class="small fw-bold text-dark">25 mins ago</div>
-                        <div class="text-muted x-small">Expressway KM-45</div>
-                      </td>
-                      <td class="pe-4 text-end">
-                        <div class="p-2 bg-warning-subtle text-warning d-inline-block rounded-circle"
-                          style="width: 32px; height: 32px; line-height: 16px;">
-                          <i class="fas fa-clock small"></i>
-                        </div>
                       </td>
                     </tr>
-                  </tbody>
-                </table>
-              </div>
-            </div>
+
+                    <tr>
+                        <td class="ps-4">
+                            <div class="d-flex align-items-center">
+                                <div class="flex-shrink-0 bg-danger-subtle text-danger rounded-3 p-2 me-3">
+                                    <i class="fas fa-car-burst fa-lg"></i>
+                                </div>
+                                <div>
+                                    <div class="fw-bold text-dark mb-0">VH-452</div>
+                                    <div class="text-muted x-small">M. Usman</div>
+                                </div>
+                            </div>
+                        </td>
+                        <td>
+                            <span class="badge bg-danger-subtle text-danger rounded-pill px-3 py-2 fw-semibold">
+                                <i class="fas fa-exclamation-circle me-1"></i> Breakdown
+                            </span>
+                        </td>
+                        <td>
+                            <div class="small fw-bold text-dark">25 mins ago</div>
+                            <div class="text-muted x-small"><i class="fas fa-map-marker-alt me-1"></i> Expressway KM-45</div>
+                        </td>
+                        <td class="  text-center">
+                            <div class="status-icon bg-warning-subtle text-warning mx-auto d-flex align-items-center justify-content-center rounded-circle" 
+                              style="width: 35px; height: 35px;">
+                                <i class="fas fa-clock"></i>
+                            </div>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+
           </div>
         </div>
 

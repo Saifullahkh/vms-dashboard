@@ -47,7 +47,7 @@ if (!isset($_SESSION['user'])) {
 
                             <div class="d-flex detail-row">
                                 <div class="detail-label">Date of Impoundment:</div>
-                                <div id="det-imp-date">22 Dec 2025 | 11:30 AM</div>
+                                <div id="det-imp-date">22 Dec 2025</div>
                             </div>
 
                             <div class="d-flex detail-row">

@@ -36,8 +36,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
                 <form method="post">
                     <div class="mb-3">
-                        <label class="form-label fw-bold">Username</label>
-                        <input type="text" name="username" class="form-control" required>
+                        <label class="form-label fw-bold">Email</label>
+                        <input type="email" name="email" class="form-control" required>
                     </div>
 
                     <div class="mb-3">

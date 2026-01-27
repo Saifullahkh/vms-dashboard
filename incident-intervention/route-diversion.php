@@ -99,7 +99,7 @@ if (!isset($_SESSION['user'])) {
 
         <div class="table-responsive p-2">
           <table id="recoveryLogTable" class="table table-hover align-middle w-100 scrollable-tbody">
-            <thead class="table-light text-secondary small text-uppercase">
+            <thead class="table-light">
               <tr>
 
                 <th>Vehicle</th>

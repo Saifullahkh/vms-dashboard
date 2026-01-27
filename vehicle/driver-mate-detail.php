@@ -220,7 +220,7 @@ if (!isset($_SESSION['user'])) {
 
                     <div class="col-md-6">
                         <label class="small fw-bold mb-1">Date Employed</label>
-                        <input type="text" class="form-control border-dark shadow-sm" value="10-Jan-2023" />
+                        <input type="date" class="form-control border-dark shadow-sm" value="10-Jan-2023" />
                     </div>
 
                     <div class="col-md-6">

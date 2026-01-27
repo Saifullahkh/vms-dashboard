@@ -30,8 +30,8 @@ include("../header_meta.php");
                     <h2 class="fw-bold  tracking-tight mb-1">Vehicle Managment</h2>
                 </div>
 
-                <div class="col-md-5 col-xl-3">
-                    <div class="d-flex justify-content-md-end mt-3 mt-md-0">
+                <div class="col-8 col-md-5 col-xl-3">
+                    <div class="d-flex justify-content-end mt-3 mt-md-0">
 
                         <div class="input-group shadow-sm border rounded-3">
                             <select class="form-select  border-0 py-2  small " 
@@ -313,7 +313,7 @@ include("../header_meta.php");
                         <div class="card-body p-4">
                             <div class="d-flex justify-content-between align-items-center mb-4">
                                 <h5 class="fw-bold mb-0">Recent Activity</h5>
-                                <a href="#" class="text-primary text-decoration-none small fw-bold">View All</a>
+                                <a href="#" class=" btn secondary-color btn-sm rounded-pill px-3 text-decoration-none small">View All</a>
                             </div>
 
                             <div class="timeline-wrapper">
@@ -382,7 +382,7 @@ include("../header_meta.php");
                     <div class="card border-0 rounded-5 shadow-sm h-100">
                         <div class="card-body p-4">
                             <h5 class="fw-bold mb-4">Active Fleet Status</h5>
-                            <div class="table-responsive">
+                            <div class="table-responsive overflow-auto">
                                 <table class="table table-hover align-middle border-0">
                                     <thead class="bg-light">
                                         <tr>
